@@ -2,8 +2,6 @@ import React from "react";
 import { EditBtn, FlexDiv } from "../StyledComponents/EditBtn.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import Tooltip from "@mui/material/Tooltip";
-import { makeStyles } from "@mui/styles";
 import ToolTip from "./ToolTip";
 
 export default function TableEditBtn({
@@ -13,7 +11,7 @@ export default function TableEditBtn({
   isEditable,
   data,
   setIsinEditMode,
-  isinEditMode,
+  isinEditMode
 }) {
   const addRow = (columns) => {
     const obj = {};
@@ -31,13 +29,7 @@ export default function TableEditBtn({
       setData([...data]);
     }
   };
-  const useTooltipStyles = makeStyles(() => ({
-    tooltip: {
-      marginBottom: "3px !important",
-    },
-  }));
 
-  const classes = useTooltipStyles();
   return (
     <FlexDiv>
       <ToolTip

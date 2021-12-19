@@ -18,7 +18,7 @@ function Table({
   updateMyData,
   skipPageReset,
   renderRowSubComponent,
-  resetData,
+  originalData,
 }) {
   const [isEditable, setisEditable] = React.useState("Cell2");
   const [isinEditMode, setIsinEditMode] = React.useState(false);
@@ -61,23 +61,24 @@ function Table({
         isinEditMode={isinEditMode}
       />
       <div>
-      <table {...getTableProps()}>
-        <TableHead headerGroups={headerGroups} />
-        <TableBody
-          getTableBodyProps={getTableBodyProps}
-          page={page}
-          prepareRow={prepareRow}
-          isEditable={isEditable}
-          renderRowSubComponent={renderRowSubComponent}
-          visibleColumns={visibleColumns}
-        />
-      </table>
+        <table {...getTableProps()}>
+          <TableHead headerGroups={headerGroups} />
+          <TableBody
+            getTableBodyProps={getTableBodyProps}
+            page={page}
+            prepareRow={prepareRow}
+            isEditable={isEditable}
+            renderRowSubComponent={renderRowSubComponent}
+            visibleColumns={visibleColumns}
+          />
+        </table>
       </div>
       {isinEditMode && (
         <FooterBtn
+          setData={setData}
           setisEditable={setisEditable}
           setIsinEditMode={setIsinEditMode}
-          resetData={resetData}
+          originalData={originalData}
         />
       )}
       <TablePagination

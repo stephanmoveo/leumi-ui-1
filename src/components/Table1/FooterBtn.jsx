@@ -3,13 +3,15 @@ import { PrimaryButton, OutlineButton } from "../StyledComponents/Buttons";
 
 export default function FooterBtn({
   setisEditable,
-  resetData,
   setIsinEditMode,
+  originalData,
+  setData
 }) {
   const confirm = () => {
     setisEditable("Cell2");
     setIsinEditMode(false);
   };
+  const resetData = () => setData(originalData);
 
   return (
     <div>

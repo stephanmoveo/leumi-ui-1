@@ -7,6 +7,7 @@ const Styles = styled.div`
   position: relative;
   table {
     border-spacing: 0;
+    direction: rtl;
     thead {
       background-color: #fafbfc;
 
@@ -32,14 +33,16 @@ const Styles = styled.div`
         background-color: #f1f4f9;
       }
     }
-
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
     th,
     td {
       margin: 0;
       padding: 0.5rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      text-align: right;
       max-width: 115px;
 
       :last-child {

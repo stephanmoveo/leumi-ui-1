@@ -1,17 +1,17 @@
 import React from "react";
 import Styles from "./Styles";
-import { mokeJson, columnData } from "../Data/MokeJson";
+import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
 import { FlexDiv } from "../StyledComponents/EditBtn";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff"; 
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 
 function StyledTable() {
-  const [data, setData] = React.useState(mokeJson);
-  const [datatoColumns, setDatatoColumns] = React.useState(columnData.slice(1));
-  const [originalData] = React.useState(mokeJson);
+  const [data, setData] = React.useState(mokeJsonData);
+  const [datatoColumns, setDatatoColumns] = React.useState(
+    columnDataaa.slice(1)
+  );
+  const [originalData] = React.useState(mokeJsonData);
   const [skipPageReset, setSkipPageReset] = React.useState(false);
-
-
 
   const deleteRow = (id) => {
     data.splice(id, 1);
@@ -33,8 +33,8 @@ function StyledTable() {
         },
       },
       {
-        Header: columnData[0].Header,
-        accessor: columnData[0].accessor,
+        Header: columnDataaa[0].Header,
+        accessor: columnDataaa[0].accessor,
         Cell: ({ value, row }) => {
           return (
             <FlexDiv>
@@ -49,7 +49,7 @@ function StyledTable() {
           );
         },
       },
-      ...datatoColumns
+      ...datatoColumns,
     ],
     []
   );
@@ -72,7 +72,7 @@ function StyledTable() {
     setSkipPageReset(false);
   }, [data]);
 
-  const resetData = () => setData(originalData);
+  // const resetData = () => setData(originalData);
 
   const renderRowSubComponent = React.useCallback(
     ({ row }) => ({
@@ -86,11 +86,12 @@ function StyledTable() {
       <Table
         columns={columns}
         data={data}
+        originalData={originalData}
         setData={setData}
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
-        resetData={resetData}
+        setData={setData}
       />
     </Styles>
   );
