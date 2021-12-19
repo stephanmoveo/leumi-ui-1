@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
- const Styles = styled.div`
+const Styles = styled.div`
   padding: 1rem;
   margin: auto;
   width: 50%;
@@ -9,10 +9,14 @@ import styled from "styled-components";
     border-spacing: 0;
     thead {
       background-color: #fafbfc;
+
+      th {
+        border-bottom: 1px solid #e9e9e9;
+      }
     }
     tr {
       text-align: justify;
-    
+
       :hover {
         background-color: #f1f4f9;
       }
@@ -33,8 +37,10 @@ import styled from "styled-components";
     td {
       margin: 0;
       padding: 0.5rem;
-      /* border-bottom: 1px solid black; */
-      /* border-right: 1px solid black; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 115px;
 
       :last-child {
         border-right: 0;

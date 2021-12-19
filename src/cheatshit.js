@@ -17,7 +17,6 @@ const columnData = [
             icon={<CancelIcon />}
             key={randomId()}
             label="Cancel"
-            // className={classes.textPrimary}
             onClick={handleCancelClick(id)}
             color="inherit"
           />,

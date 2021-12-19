@@ -1,6 +1,5 @@
 import React from "react";
 import Styles from "./Styles";
-import "./table.css";
 import { mokeJson, columnData } from "../Data/MokeJson";
 import { FlexDiv } from "../StyledComponents/EditBtn";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff"; 
@@ -14,7 +13,7 @@ function StyledTable() {
 
 
 
-  const deleterRow = (id) => {
+  const deleteRow = (id) => {
     data.splice(id, 1);
     setData([...data]);
   };
@@ -34,15 +33,15 @@ function StyledTable() {
         },
       },
       {
-        Header: "First Name",
-        accessor: "firstName",
+        Header: columnData[0].Header,
+        accessor: columnData[0].accessor,
         Cell: ({ value, row }) => {
           return (
             <FlexDiv>
               <HighlightOffIcon
                 style={{ marginRight: "5px", color: "grey", width: "20px" }}
                 onClick={() => {
-                  deleterRow(row.index);
+                  deleteRow(row.index);
                 }}
               />
               {value}

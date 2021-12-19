@@ -1,5 +1,4 @@
 import React from "react";
-import "./table.css";
 import { useTable, usePagination, useExpanded } from "react-table";
 import EditableCell from "./EditableCell";
 import NonEditableCell from "./NonEditableCell";

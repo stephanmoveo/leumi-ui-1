@@ -193,7 +193,6 @@ export const mokeJson = [
   },
 ];
 
-// export default mokeJson;
 
 export const columnData = [
   {

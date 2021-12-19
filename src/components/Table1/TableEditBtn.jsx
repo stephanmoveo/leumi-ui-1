@@ -4,6 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Tooltip from "@mui/material/Tooltip";
 import { makeStyles } from "@mui/styles";
+import ToolTip from "./ToolTip";
 
 export default function TableEditBtn({
   setisEditable,
@@ -39,7 +40,12 @@ export default function TableEditBtn({
   const classes = useTooltipStyles();
   return (
     <FlexDiv>
-      <Tooltip title={"עריכה"} placement="top" arrow classes={classes}>
+      <ToolTip
+        val={"עריכה"}
+        // placement="top"
+        // arrow
+        // classes={classes}
+      >
         <EditBtn
           onClick={() => {
             setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
@@ -49,13 +55,18 @@ export default function TableEditBtn({
           <EditIcon />
           {"עריכה"}
         </EditBtn>
-      </Tooltip>
-      <Tooltip title={"הוספת מנהל"} placement="top" arrow classes={classes}>
+      </ToolTip>
+      <ToolTip
+        val={"הוספת מנהל"}
+        // placement="top"
+        // arrow
+        // classes={classes}
+      >
         <EditBtn onClick={() => addRow(columns)}>
           <PersonAddIcon />
           {"הוספת מנהל"}
         </EditBtn>
-      </Tooltip>
+      </ToolTip>
     </FlexDiv>
   );
 }

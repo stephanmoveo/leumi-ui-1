@@ -1,4 +1,4 @@
-import React, { useRef, createRef } from "react";
+import React from "react";
 import ToolTip from "./ToolTip.jsx";
 
 export default function TableBody({
@@ -9,15 +9,9 @@ export default function TableBody({
   renderRowSubComponent,
   visibleColumns,
 }) {
-  const mountedStyle = { animation: "inAnimation 250ms ease-in" };
-  const unmountedStyle = {
-    animation: "outAnimation 270ms ease-out",
-    animationFillMode: "forwards",
-  };
   const active = {
     backgroundColor: "#e7ebf2",
   };
-
 
   return (
     <tbody {...getTableBodyProps()}>
@@ -31,11 +25,7 @@ export default function TableBody({
                 .map((cell, i) => {
                   return (
                     <ToolTip val={cell.value}>
-                      <td
-                        className="cell"
-                        {...cell.getCellProps()}
-                        key={i}
-                      >
+                      <td {...cell.getCellProps()} key={i}>
                         {cell.render(isEditable)}
                       </td>
                     </ToolTip>
@@ -43,7 +33,7 @@ export default function TableBody({
                 })}
             </tr>
             {row.isExpanded && renderRowSubComponent({ row }).values ? (
-              <tr style={renderRowSubComponent({ row }).values ? mountedStyle : unmountedStyle}>
+              <tr>
                 <td colSpan={visibleColumns.length}>
                   <div>
                     {renderRowSubComponent({ row }).values.length > 0 &&

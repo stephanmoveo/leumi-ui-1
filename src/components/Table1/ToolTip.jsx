@@ -19,9 +19,9 @@ function ToolTip({ children, val }) {
   }));
   return (
     <BootstrapTooltip
-      // title={val}
-      title={valLength >= 14 ? val : ""}
-      // disableHoverListener={valLength >= 14 ? false : true}
+      title={
+        valLength >= 14 || (val === "עריכה" || val === "הוספת מנהל") ? val : ""
+      }
     >
       {children}
     </BootstrapTooltip>
