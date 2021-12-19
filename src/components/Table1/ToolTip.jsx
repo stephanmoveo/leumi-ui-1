@@ -2,25 +2,9 @@ import React from "react";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
-function ToolTip({ children, val, elRefs, index }) {
-  const [isShown, setIsShown] = React.useState();
-
-  React.useEffect(() => {
-    console.log(
-      "this is scrollWidht" +
-        " " +
-        elRefs.current[index].scrollWidth +
-        " " +
-        "this is ClientWidht"
-        + ' ' +
-        elRefs.current[index].clientWidth
-    );
-    // setIsShown(
-    //   elRefs.current[index].clientWidth < elRefs.current[index].scrollWidth
-    // );
-  }, [elRefs]);
-
+function ToolTip({ children, val }) {
   const valLength = val != undefined && val.toString().length;
+
   const BootstrapTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} placement="top" arrow classes={{ popper: className }} />
   ))(({ theme }) => ({
@@ -34,7 +18,13 @@ function ToolTip({ children, val, elRefs, index }) {
     },
   }));
   return (
-    <BootstrapTooltip title={isShown ? val : ""}>{children}</BootstrapTooltip>
+    <BootstrapTooltip
+      // title={val}
+      title={valLength >= 14 ? val : ""}
+      // disableHoverListener={valLength >= 14 ? false : true}
+    >
+      {children}
+    </BootstrapTooltip>
   );
 }
 

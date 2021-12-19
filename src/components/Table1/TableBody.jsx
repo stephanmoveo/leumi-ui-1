@@ -18,12 +18,6 @@ export default function TableBody({
     backgroundColor: "#e7ebf2",
   };
 
-const arrLength = page.length;
-const elRefs = React.useRef([]);
-
-React.useEffect(() => {
-  elRefs.current = elRefs.current.slice(0, arrLength);
-}, [])
 
   return (
     <tbody {...getTableBodyProps()}>
@@ -33,21 +27,23 @@ React.useEffect(() => {
           <>
             <tr {...row.getRowProps()} key={i} style={row.isExpanded && active}>
               {row.cells
-              // .slice().reverse()
-              .map((cell, i) => {
-                return (
-                  <ToolTip val={cell.value}  elRefs={elRefs} index={i}>
-                    <td className="cell" {...cell.getCellProps()} key={i} 
-                    ref={el => elRefs.current[i] = el} 
-                    >
-                      {cell.render(isEditable)}
-                    </td>
-                  </ToolTip>
-                );
-              })}
+                // .slice().reverse()
+                .map((cell, i) => {
+                  return (
+                    <ToolTip val={cell.value}>
+                      <td
+                        className="cell"
+                        {...cell.getCellProps()}
+                        key={i}
+                      >
+                        {cell.render(isEditable)}
+                      </td>
+                    </ToolTip>
+                  );
+                })}
             </tr>
             {row.isExpanded && renderRowSubComponent({ row }).values ? (
-              <tr style={row.isExpanded ? mountedStyle : unmountedStyle}>
+              <tr style={renderRowSubComponent({ row }).values ? mountedStyle : unmountedStyle}>
                 <td colSpan={visibleColumns.length}>
                   <div>
                     {renderRowSubComponent({ row }).values.length > 0 &&

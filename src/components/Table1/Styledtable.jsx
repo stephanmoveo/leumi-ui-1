@@ -8,9 +8,11 @@ import Table from "./Table";
 
 function StyledTable() {
   const [data, setData] = React.useState(mokeJson);
-  const [datatoColumns, setDatatoColumns] = React.useState(columnData);
+  const [datatoColumns, setDatatoColumns] = React.useState(columnData.slice(1));
   const [originalData] = React.useState(mokeJson);
   const [skipPageReset, setSkipPageReset] = React.useState(false);
+
+
 
   const deleterRow = (id) => {
     data.splice(id, 1);
@@ -48,28 +50,7 @@ function StyledTable() {
           );
         },
       },
-      {
-        Header: "Last Name",
-        accessor: "lastName",
-      },
-      {
-        Header: "Age",
-        accessor: "age",
-      },
-      {
-        Header: "Visits",
-        accessor: "visits",
-      },
-      {
-        Header: "Status",
-        accessor: "status",
-        isLink: true,
-      },
-      {
-        Header: "Profile Progress",
-        accessor: "progress",
-        editable: false,
-      },
+      ...datatoColumns
     ],
     []
   );

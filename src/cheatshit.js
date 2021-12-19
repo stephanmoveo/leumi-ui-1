@@ -344,7 +344,6 @@ const rowData = [
     if (headers) {
     return headers.map(key => {
       return {
-
         Header: key.toString(),
         accessor: key.toString()
       };
