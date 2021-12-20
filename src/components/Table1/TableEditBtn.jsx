@@ -11,11 +11,11 @@ export default function TableEditBtn({
   isEditable,
   data,
   setIsinEditMode,
-  isinEditMode
+  isinEditMode,
 }) {
   const addRow = (columns) => {
     const obj = {};
-    columns.forEach((item, i) => {
+    columns.slice(1).forEach((item, i) => {
       obj[item.accessor] = "";
     });
     if (
@@ -32,12 +32,7 @@ export default function TableEditBtn({
 
   return (
     <FlexDiv>
-      <ToolTip
-        val={"עריכה"}
-        // placement="top"
-        // arrow
-        // classes={classes}
-      >
+      <ToolTip val={"עריכה"}>
         <EditBtn
           onClick={() => {
             setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
@@ -48,12 +43,7 @@ export default function TableEditBtn({
           {"עריכה"}
         </EditBtn>
       </ToolTip>
-      <ToolTip
-        val={"הוספת מנהל"}
-        // placement="top"
-        // arrow
-        // classes={classes}
-      >
+      <ToolTip val={"הוספת מנהל"}>
         <EditBtn onClick={() => addRow(columns)}>
           <PersonAddIcon />
           {"הוספת מנהל"}

@@ -2,7 +2,7 @@ import React from "react";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
-function ToolTip({ children, val }) {
+function ToolTip({ children, val, maxWidth }) {
   const valLength = val != undefined && val.toString().length;
 
   const BootstrapTooltip = styled(({ className, ...props }) => (
@@ -13,7 +13,7 @@ function ToolTip({ children, val }) {
     },
     [`& .${tooltipClasses.tooltip}`]: {
       backgroundColor: "#3e4b60",
-      maxWidth: "none",
+      maxWidth: maxWidth,
       marginBottom: "3px !important",
     },
   }));

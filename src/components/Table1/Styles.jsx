@@ -2,15 +2,13 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   padding: 1rem;
-  margin: auto;
-  width: 50%;
-  position: relative;
   table {
     border-spacing: 0;
     direction: rtl;
     thead {
       background-color: #fafbfc;
-
+      position: sticky;
+      top: 0;
       th {
         border-bottom: 1px solid #e9e9e9;
       }
@@ -43,8 +41,6 @@ const Styles = styled.div`
       margin: 0;
       padding: 0.5rem;
       text-align: right;
-      max-width: 115px;
-
       :last-child {
         border-right: 0;
       }

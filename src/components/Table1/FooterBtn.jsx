@@ -5,9 +5,11 @@ export default function FooterBtn({
   setisEditable,
   setIsinEditMode,
   originalData,
-  setData
+  setData,
+  data
 }) {
   const confirm = () => {
+    setData([...data])
     setisEditable("Cell2");
     setIsinEditMode(false);
   };

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { DatePicker } from "../StyledComponents/EditBtn";
 const EditableCell = ({
   value: initialValue,
   row: { index },
@@ -18,9 +18,10 @@ const EditableCell = ({
   React.useEffect(() => {
     setValue(initialValue);
   }, [initialValue]);
+
   if (type === "date")
     return (
-      <input
+      <DatePicker
         type="date"
         disabled={editable === false}
         value={value}

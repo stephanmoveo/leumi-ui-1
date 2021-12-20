@@ -7,36 +7,40 @@ export const columnDataaa = [
   {
     Header: "שם המנהל",
     accessor: "שם",
-    type:'string'
+    type: "string",
   },
   {
     Header: "תעודה זהות",
     accessor: "תז",
-    type:'string'
+    type: "string",
+    width: 115,
   },
   {
     Header: "סניף",
     accessor: "סניף",
     isSortable: true,
-    type:'string'
+    type: "string",
+    width: 80,
   },
   {
     Header: "תת סניף",
     accessor: "תת",
-    type:'string'
+    type: "string",
+    width: 80,
   },
   {
     Header: "דרג ניהול",
     accessor: "דרג",
     editable: false,
-    type:'string'
-
+    type: "string",
+    width: 80,
   },
   {
     Header: "תאריך סיום תוקף הגדרה",
     accessor: "תאריך",
     isLink: true,
-    type:'date'
+    type: "date",
+    width: 120,
   },
 ];
 
@@ -44,14 +48,23 @@ export const mokeJsonData = [
   {
     id: rendomId(),
     שם: "יוסי שיטרית",
-    תז: "895723985678768756",
+    תז: "8957239 8567865875778 5875875886576 8756",
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.05.2021",
+    תאריך: "2013-01-08",
     addInfo: [
       {
         adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+        adess: "tel aviv",
+        counry: "israel",
+        dat: "12/9/2021",
+        aress: "tel aviv",
+        cuntry: "israel",
+        dt: "12/9/2021",
+        adrss: "tel aviv",
         country: "israel",
         date: "12/9/2021",
       },
@@ -64,7 +77,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "09.02.2021",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -73,7 +86,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.09.2019",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -82,7 +95,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "03.11.2020",
+    תאריך: "2020-11-03",
   },
   {
     id: rendomId(),
@@ -91,7 +104,23 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.05.2021",
+    תאריך: "2021-05-01",
+    addInfo: [
+      {
+        adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+      },
+    ],
+  },
+  {
+    id: rendomId(),
+    שם: "יוסי שיטרית",
+    תז: "8957239 8567865875778 5875875886576 8756",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
     addInfo: [
       {
         adress: "tel aviv",
@@ -107,7 +136,32 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "09.02.2021",
+    תאריך: "2013-01-08",
+  },
+  {
+    id: rendomId(),
+    שם: "יוסי שיטרית",
+    תז: "8957239 8567865875778 5875875886576 8756",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
+    addInfo: [
+      {
+        adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+      },
+    ],
+  },
+  {
+    id: rendomId(),
+    שם: "אבי אבי",
+    תז: "89572399090",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -116,7 +170,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.09.2019",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -125,7 +179,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "03.11.2020",
+    תאריך: "2020-11-03",
   },
   {
     id: rendomId(),
@@ -134,7 +188,23 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.05.2021",
+    תאריך: "2021-05-01",
+    addInfo: [
+      {
+        adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+      },
+    ],
+  },
+  {
+    id: rendomId(),
+    שם: "יוסי שיטרית",
+    תז: "8957239 8567865875778 5875875886576 8756",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
     addInfo: [
       {
         adress: "tel aviv",
@@ -150,7 +220,32 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "09.02.2021",
+    תאריך: "2013-01-08",
+  },
+  {
+    id: rendomId(),
+    שם: "יוסי שיטרית",
+    תז: "8957239 8567865875778 5875875886576 8756",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
+    addInfo: [
+      {
+        adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+      },
+    ],
+  },
+  {
+    id: rendomId(),
+    שם: "אבי אבי",
+    תז: "89572399090",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -159,7 +254,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.09.2019",
+    תאריך: "2013-01-08",
   },
   {
     id: rendomId(),
@@ -168,7 +263,7 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "03.11.2020",
+    תאריך: "2020-11-03",
   },
   {
     id: rendomId(),
@@ -177,7 +272,23 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "21.05.2021",
+    תאריך: "2021-05-01",
+    addInfo: [
+      {
+        adress: "tel aviv",
+        country: "israel",
+        date: "12/9/2021",
+      },
+    ],
+  },
+  {
+    id: rendomId(),
+    שם: "יוסי שיטרית",
+    תז: "8957239 8567865875778 5875875886576 8756",
+    סניף: 123,
+    תת: "עסקים",
+    דרג: "מנהל",
+    תאריך: "2013-01-08",
     addInfo: [
       {
         adress: "tel aviv",
@@ -193,53 +304,6 @@ export const mokeJsonData = [
     סניף: 123,
     תת: "עסקים",
     דרג: "מנהל",
-    תאריך: "09.02.2021",
-  },
-  {
-    id: rendomId(),
-    שם: "ערן ערן",
-    תז: "89572558567",
-    סניף: 123,
-    תת: "עסקים",
-    דרג: "מנהל",
-    תאריך: "21.09.2019",
-  },
-  {
-    id: rendomId(),
-    שם: "יוסי יוסי",
-    תז: "89572398337",
-    סניף: 123,
-    תת: "עסקים",
-    דרג: "מנהל",
-    תאריך: "03.11.2020",
+    תאריך: "2013-01-08",
   },
 ];
-
-// export const columnData = [
-//   {
-//     Header: "First Name",
-//     accessor: "firstName",
-//   },
-//   {
-//     Header: "Last Name",
-//     accessor: "lastName",
-//   },
-//   {
-//     Header: "Age",
-//     accessor: "age",
-//   },
-//   {
-//     Header: "Visits",
-//     accessor: "visits",
-//   },
-//   {
-//     Header: "Status",
-//     accessor: "status",
-//     isLink: true,
-//   },
-//   {
-//     Header: "Profile Progress",
-//     accessor: "progress",
-//     editable: false,
-//   },
-// ];

@@ -7,6 +7,8 @@ import FooterBtn from "./FooterBtn";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
+import { TableWarp } from "../StyledComponents/EditBtn";
+
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
@@ -60,7 +62,7 @@ function Table({
         setIsinEditMode={setIsinEditMode}
         isinEditMode={isinEditMode}
       />
-      <div>
+      <TableWarp>
         <table {...getTableProps()}>
           <TableHead headerGroups={headerGroups} />
           <TableBody
@@ -72,9 +74,10 @@ function Table({
             visibleColumns={visibleColumns}
           />
         </table>
-      </div>
+      </TableWarp>
       {isinEditMode && (
         <FooterBtn
+          data={data}
           setData={setData}
           setisEditable={setisEditable}
           setIsinEditMode={setIsinEditMode}

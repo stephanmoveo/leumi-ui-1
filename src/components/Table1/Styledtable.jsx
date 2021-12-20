@@ -13,21 +13,19 @@ function StyledTable() {
   const [originalData] = React.useState(mokeJsonData);
   const [skipPageReset, setSkipPageReset] = React.useState(false);
 
-  const deleteRow = (id) => {
-    data.splice(id, 1);
-    setData([...data]);
-  };
 
   const columns = React.useMemo(
     () => [
       {
         Header: () => null,
         id: "expander",
-        Cell2: ({ row }) => (
-          <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? "-" : "+"}
-          </span>
-        ),
+        Cell2: ({ row }) => {
+          return (
+            <span {...row.getToggleRowExpandedProps()}>
+              {row.isExpanded ? "-" : "+"}
+            </span>
+          );
+        },
         Cell: () => {
           return <div></div>;
         },
@@ -72,8 +70,13 @@ function StyledTable() {
     setSkipPageReset(false);
   }, [data]);
 
-  // const resetData = () => setData(originalData);
-
+  const deleteRow = (index) => {
+    let r = window.confirm("Are You Sure You Want To Delete Row?");
+    if (r == true) {
+      data.splice(index, 1);
+      setData([...data]);
+    }
+  };
   const renderRowSubComponent = React.useCallback(
     ({ row }) => ({
       values: row.original.addInfo && row.original.addInfo,

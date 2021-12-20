@@ -16,9 +16,9 @@ export const EditBtn = styled.div`
 
 export const FlexDiv = styled.div`
   display: flex;
-    align-items: center;
+  align-items: center;
+  flex-wrap: wrap;
 `;
-
 
 export const Link = styled.a`
   text-decoration: none;
@@ -28,3 +28,18 @@ export const Link = styled.a`
     text-decoration: underline;
   }
 `;
+
+export const TableWarp = styled.div`
+  overflow-x: auto;
+  height: 300px;
+`;
+
+export const DatePicker = styled.input`
+  ::-webkit-calendar-picker-indicator {
+    margin-left: -15px;
+  }
+`;
+
+export const AddInfoP= styled.p`
+margin: 5px;
+`
