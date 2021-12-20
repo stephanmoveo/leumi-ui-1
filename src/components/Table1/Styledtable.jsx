@@ -4,6 +4,8 @@ import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
 import { FlexDiv } from "../StyledComponents/EditBtn";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteRow } from "../../store/slices/dataSlice";
 
 function StyledTable() {
   const [data, setData] = React.useState(mokeJsonData);
@@ -12,12 +14,13 @@ function StyledTable() {
   );
   const [originalData] = React.useState(mokeJsonData);
   const [skipPageReset, setSkipPageReset] = React.useState(false);
-
+  // const data = useSelector((state) => state.dataReducer.data);
+  const dispatch = useDispatch();
 
   const columns = React.useMemo(
     () => [
       {
-        Header: () => null,
+        Header: "",
         id: "expander",
         Cell2: ({ row }) => {
           return (
@@ -38,9 +41,7 @@ function StyledTable() {
             <FlexDiv>
               <HighlightOffIcon
                 style={{ marginRight: "5px", color: "grey", width: "20px" }}
-                onClick={() => {
-                  deleteRow(row.index);
-                }}
+                onClick={() => dispatch(deleteRow(row.value))}
               />
               {value}
             </FlexDiv>
@@ -70,13 +71,13 @@ function StyledTable() {
     setSkipPageReset(false);
   }, [data]);
 
-  const deleteRow = (index) => {
-    let r = window.confirm("Are You Sure You Want To Delete Row?");
-    if (r == true) {
-      data.splice(index, 1);
-      setData([...data]);
-    }
-  };
+  // const deleteRow = (index) => {
+  //   let r = window.confirm("Are You Sure You Want To Delete Row?");
+  //   if (r == true) {
+  //     data.splice(index, 1);
+  //     setData([...data]);
+  //   }
+  // };
   const renderRowSubComponent = React.useCallback(
     ({ row }) => ({
       values: row.original.addInfo && row.original.addInfo,
@@ -94,7 +95,6 @@ function StyledTable() {
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
-        setData={setData}
       />
     </Styles>
   );

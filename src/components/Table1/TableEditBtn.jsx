@@ -3,32 +3,22 @@ import { EditBtn, FlexDiv } from "../StyledComponents/EditBtn.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
+import { useDispatch, useSelector } from "react-redux";
+import { addRow } from "../../store/slices/dataSlice.js";
 
 export default function TableEditBtn({
   setisEditable,
   columns,
-  setData,
+  // setData,
   isEditable,
-  data,
+  // data,
   setIsinEditMode,
   isinEditMode,
 }) {
-  const addRow = (columns) => {
-    const obj = {};
-    columns.slice(1).forEach((item, i) => {
-      obj[item.accessor] = "";
-    });
-    if (
-      obj &&
-      Object.keys(obj).length === 0 &&
-      Object.getPrototypeOf(obj) === Object.prototype
-    )
-      return;
-    else {
-      data.splice(0, 0, obj);
-      setData([...data]);
-    }
-  };
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.dataReducer.data);
+  console.log(data);
 
   return (
     <FlexDiv>
@@ -44,7 +34,9 @@ export default function TableEditBtn({
         </EditBtn>
       </ToolTip>
       <ToolTip val={"הוספת מנהל"}>
-        <EditBtn onClick={() => addRow(columns)}>
+        <EditBtn
+          onClick={() => dispatch(addRow(columns))}
+        >
           <PersonAddIcon />
           {"הוספת מנהל"}
         </EditBtn>
