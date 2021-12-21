@@ -8,22 +8,21 @@ import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
 import { TableWarp } from "../StyledComponents/EditBtn";
+import { useSelector } from "react-redux";
 
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
 };
 function Table({
-  setData,
   columns,
-  data,
-  updateMyData,
   skipPageReset,
   renderRowSubComponent,
-  originalData,
 }) {
   const [isEditable, setisEditable] = React.useState("Cell2");
   const [isinEditMode, setIsinEditMode] = React.useState(false);
+  const data = useSelector((state) => state.dataReducer.data);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -46,7 +45,6 @@ function Table({
       data,
       defaultColumn,
       autoResetPage: !skipPageReset,
-      updateMyData,
     },
     useExpanded,
     usePagination
@@ -57,8 +55,6 @@ function Table({
         setisEditable={setisEditable}
         isEditable={isEditable}
         columns={columns}
-        setData={setData}
-        data={data}
         setIsinEditMode={setIsinEditMode}
         isinEditMode={isinEditMode}
       />
@@ -77,11 +73,8 @@ function Table({
       </TableWarp>
       {isinEditMode && (
         <FooterBtn
-          data={data}
-          setData={setData}
           setisEditable={setisEditable}
           setIsinEditMode={setIsinEditMode}
-          originalData={originalData}
         />
       )}
       <TablePagination

@@ -3,22 +3,17 @@ import { EditBtn, FlexDiv } from "../StyledComponents/EditBtn.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addRow } from "../../store/slices/dataSlice.js";
 
 export default function TableEditBtn({
   setisEditable,
   columns,
-  // setData,
   isEditable,
-  // data,
   setIsinEditMode,
   isinEditMode,
 }) {
   const dispatch = useDispatch();
-
-  const data = useSelector((state) => state.dataReducer.data);
-  console.log(data);
 
   return (
     <FlexDiv>

@@ -1,18 +1,23 @@
 import React from "react";
 import { DatePicker } from "../StyledComponents/EditBtn";
+import { useDispatch, useSelector } from "react-redux";
+import { updateMyData } from "../../store/slices/dataSlice";
+
 const EditableCell = ({
   value: initialValue,
   row: { index },
   column: { id, editable, type },
-  updateMyData,
+  // updateMyData,
 }) => {
   const [value, setValue] = React.useState(initialValue);
+
   const onChange = (e) => {
     setValue(e.target.value);
   };
+  const dispatch = useDispatch();
 
   const onBlur = () => {
-    updateMyData(index, id, value);
+    dispatch(updateMyData({ index, id, value }));
   };
 
   React.useEffect(() => {

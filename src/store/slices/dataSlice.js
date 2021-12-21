@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { mokeJsonData } from "../../components/Data/MokeJson";
 const initialState = {
   data: mokeJsonData,
+  originalData: mokeJsonData,
 };
 
 export const dataSlice = createSlice({
@@ -29,9 +30,24 @@ export const dataSlice = createSlice({
         state.data.splice(action.payload, 1);
       }
     },
+    resetData: (state, action) => {
+      state.data = state.originalData;
+    },
+    updateMyData: (state, action) => {
+      const result = state.data.map((row, i) => {
+        if (i === action.payload.index) {
+          return {
+            ...state.data[action.payload.index],
+            [action.payload.id]: action.payload.value,
+          };
+        }
+        return row;
+      });
+      state.data = result;
+    },
   },
 });
 
-export const { addRow, deleteRow } = dataSlice.actions;
+export const { addRow, deleteRow, resetData, updateMyData } = dataSlice.actions;
 
 export default dataSlice.reducer;
