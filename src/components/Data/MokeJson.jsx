@@ -55,7 +55,7 @@ export const columnDataaa = [
     accessor: "תאריך",
     isLink: true,
     type: "date",
-    width: 130,
+    width: 120,
   },
 ];
 

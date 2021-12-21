@@ -52,3 +52,9 @@ export const ThDiv = styled.span`
 export const SortByP = styled.p`
   margin: 0;
 `;
+
+export const InputSelect = styled.select`
+  height: 26px;
+  border: 1px solid #d1d1d1;
+  font-size: 15px;
+`;

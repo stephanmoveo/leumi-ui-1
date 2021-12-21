@@ -1,5 +1,5 @@
 import React from "react";
-import { DatePicker } from "../StyledComponents/Elements";
+import { DatePicker, InputSelect } from "../StyledComponents/Elements";
 import { useDispatch } from "react-redux";
 import { updateMyData } from "../../store/slices/dataSlice";
 
@@ -26,7 +26,7 @@ const EditableCell = ({
 
   if (type === "singleSelect")
     return (
-      <select
+      <InputSelect
         value={value}
         onChange={onChange}
         onBlur={onBlur}
@@ -39,7 +39,7 @@ const EditableCell = ({
             </option>
           );
         })}
-      </select>
+      </InputSelect>
     );
   if (type === "date")
     return (
