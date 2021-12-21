@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./Styles";
+import Styles from "../StyledComponents/MainTableWarp";
 import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
 import { FlexDiv } from "../StyledComponents/Elements";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
