@@ -14,8 +14,8 @@ export const dataSlice = createSlice({
     },
     addRow: (state, action) => {
       const obj = {};
-      action.payload.slice(1).forEach((item, i) => {
-        obj[item.accessor] = "";
+      action.payload.slice(1).forEach((item) => {
+        obj[item.accessor] = '';
       });
       if (
         obj &&

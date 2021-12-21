@@ -16,7 +16,7 @@ export default function TableEditBtn({
   const dispatch = useDispatch();
 
   const addNewRow = () => {
-    setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
+    // setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
     dispatch(addRow(columns));
     setIsinEditMode(!isinEditMode);
   };

@@ -11,19 +11,19 @@ function StyledTable() {
   useEffect(() => {
     dispatch(getData(mokeJsonData));
   }, []);
-  const [datatoColumns, setDatatoColumns] = useState(columnDataaa.slice(1));
+  const [datatoColumns] = useState(columnDataaa.slice(1));
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
   const dispatch = useDispatch();
 
-  const columns = useMemo(
+  const columns = useMemo( 
     () => [
       {
         Header: "",
-        id: "expander",
-        Cell2: ({ row }) => {
+        id: "expander", 
+        Cell2: ({ row }) => { 
           return (
-            <span {...row.getToggleRowExpandedProps()}>
+            <span {...row.getToggleRowExpandedProps()}>  
               {row.isExpanded ? "-" : "+"}
             </span>
           );
