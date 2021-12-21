@@ -47,9 +47,9 @@ const Styles = styled.div`
 
       input {
         font-size: 1rem;
-        padding: 0;
+        padding: 3px;
         margin: 0;
-        border: 0;
+        border: 1px solid #d1d1d1;
       }
     }
   }

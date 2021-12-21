@@ -1,6 +1,6 @@
 import React from "react";
 import ToolTip from "./ToolTip.jsx";
-import { FlexDiv, AddInfoP } from "../StyledComponents/EditBtn";
+import { FlexDiv, AddInfoP } from "../StyledComponents/Elements";
 export default function TableBody({
   getTableBodyProps,
   page,

@@ -1,13 +1,16 @@
 import React from "react";
 import Styles from "./Styles";
-import { columnDataaa } from "../Data/MokeJson";
-import { FlexDiv } from "../StyledComponents/EditBtn";
+import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
+import { FlexDiv } from "../StyledComponents/Elements";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRow } from "../../store/slices/dataSlice";
+import { deleteRow, getData } from "../../store/slices/dataSlice";
 
 function StyledTable() {
+  React.useEffect(() => {
+    dispatch(getData(mokeJsonData));
+  }, []);
   const [datatoColumns, setDatatoColumns] = React.useState(
     columnDataaa.slice(1)
   );
@@ -40,7 +43,7 @@ function StyledTable() {
             <FlexDiv>
               <HighlightOffIcon
                 style={{ marginRight: "5px", color: "grey", width: "20px" }}
-                onClick={() => dispatch(deleteRow(row.value))}
+                onClick={() => dispatch(deleteRow(row.index))}
               />
               {value}
             </FlexDiv>

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "../StyledComponents/EditBtn.jsx";
+import { Link } from "../StyledComponents/Elements.jsx";
 
 const NonEditableCell = ({ value: initialValue, column: { isLink, type } }) => {
   const ChangeFormateDate = (oldDate) => {
@@ -11,10 +11,13 @@ const NonEditableCell = ({ value: initialValue, column: { isLink, type } }) => {
     setValue(initialValue);
   }, [initialValue]);
   if (type === "date") {
-    ChangeFormateDate(value);
+   const newDate = ChangeFormateDate(value);
+   if (!isLink) return newDate;
+   return <Link href="#">{newDate}</Link>;
   }
   if (!isLink) return value;
-  return <Link href="#">{value}</Link>;
+   return <Link href="#">{value}</Link>;
+ 
 };
 
 export default NonEditableCell;

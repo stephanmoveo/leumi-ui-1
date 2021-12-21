@@ -1,5 +1,5 @@
 import React from "react";
-import { EditBtn, FlexDiv } from "../StyledComponents/EditBtn.jsx";
+import { EditBtn, FlexDiv } from "../StyledComponents/Elements.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
@@ -15,23 +15,25 @@ export default function TableEditBtn({
 }) {
   const dispatch = useDispatch();
 
+  const addNewRow = () => {
+    setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
+    dispatch(addRow(columns));
+    setIsinEditMode(!isinEditMode);
+  };
+  const editRow = () => {
+    setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
+    setIsinEditMode(!isinEditMode);
+  };
   return (
     <FlexDiv>
       <ToolTip val={"עריכה"}>
-        <EditBtn
-          onClick={() => {
-            setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
-            setIsinEditMode(!isinEditMode);
-          }}
-        >
+        <EditBtn onClick={editRow}>
           <EditIcon />
           {"עריכה"}
         </EditBtn>
       </ToolTip>
       <ToolTip val={"הוספת מנהל"}>
-        <EditBtn
-          onClick={() => dispatch(addRow(columns))}
-        >
+        <EditBtn onClick={addNewRow}>
           <PersonAddIcon />
           {"הוספת מנהל"}
         </EditBtn>

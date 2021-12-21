@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { mokeJsonData } from "../../components/Data/MokeJson";
 const initialState = {
-  data: mokeJsonData,
-  originalData: mokeJsonData,
+  data: [],
+  originalData: [],
 };
 
 export const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
+    getData: (state, action) => {
+      state.data = action.payload;
+      state.originalData = action.payload;
+    },
     addRow: (state, action) => {
       const obj = {};
       action.payload.slice(1).forEach((item, i) => {
@@ -22,12 +25,14 @@ export const dataSlice = createSlice({
         return;
       else {
         state.data.splice(0, 0, obj);
+        state.originalData = state.data;
       }
     },
     deleteRow: (state, action) => {
       let r = window.confirm("Are You Sure You Want To Delete Row?");
       if (r == true) {
         state.data.splice(action.payload, 1);
+        state.originalData = state.data;
       }
     },
     resetData: (state, action) => {
@@ -48,6 +53,7 @@ export const dataSlice = createSlice({
   },
 });
 
-export const { addRow, deleteRow, resetData, updateMyData } = dataSlice.actions;
+export const { addRow, deleteRow, resetData, updateMyData, getData } =
+  dataSlice.actions;
 
 export default dataSlice.reducer;

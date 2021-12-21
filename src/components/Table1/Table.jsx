@@ -1,5 +1,5 @@
 import React from "react";
-import { useTable, usePagination, useExpanded } from "react-table";
+import { useTable, usePagination, useSortBy, useExpanded } from "react-table";
 import EditableCell from "./EditableCell";
 import NonEditableCell from "./NonEditableCell";
 import TablePagination from "./TablePagination";
@@ -7,18 +7,14 @@ import FooterBtn from "./FooterBtn";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
-import { TableWarp } from "../StyledComponents/EditBtn";
+import { TableWarp } from "../StyledComponents/Elements";
 import { useSelector } from "react-redux";
 
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
 };
-function Table({
-  columns,
-  skipPageReset,
-  renderRowSubComponent,
-}) {
+function Table({ columns, skipPageReset, renderRowSubComponent }) {
   const [isEditable, setisEditable] = React.useState("Cell2");
   const [isinEditMode, setIsinEditMode] = React.useState(false);
   const data = useSelector((state) => state.dataReducer.data);
@@ -46,6 +42,7 @@ function Table({
       defaultColumn,
       autoResetPage: !skipPageReset,
     },
+    useSortBy,
     useExpanded,
     usePagination
   );

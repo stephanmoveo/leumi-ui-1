@@ -1,4 +1,3 @@
-import "./App.css";
 import Styledtable from "./components/Table1/Styledtable";
 
 function App() {

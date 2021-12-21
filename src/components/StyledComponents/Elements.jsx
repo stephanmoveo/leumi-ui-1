@@ -36,10 +36,19 @@ export const TableWarp = styled.div`
 
 export const DatePicker = styled.input`
   ::-webkit-calendar-picker-indicator {
-    margin-left: -15px;
+    margin-left: 1px;
   }
 `;
 
-export const AddInfoP= styled.p`
-margin: 5px;
-`
+export const AddInfoP = styled.p`
+  margin: 5px;
+`;
+
+export const ThDiv = styled.span`
+  display: flex;
+  align-items: center;
+`;
+
+export const SortByP = styled.p`
+  margin: 0;
+`;
