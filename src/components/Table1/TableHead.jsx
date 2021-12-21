@@ -8,7 +8,6 @@ export default function TableHead({ headerGroups }) {
       {headerGroups.map((headerGroup, i) => (
         <tr {...headerGroup.getHeaderGroupProps()} key={i}>
           {headerGroup.headers.map((column) => {
-            console.log(column);
             return (
               <th
                 className="th-column"

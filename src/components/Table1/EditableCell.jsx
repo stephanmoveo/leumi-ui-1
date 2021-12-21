@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DatePicker, InputSelect } from "../StyledComponents/Elements";
 import { useDispatch } from "react-redux";
 import { updateMyData } from "../../store/slices/dataSlice";
@@ -8,7 +8,7 @@ const EditableCell = ({
   row: { index },
   column: { id, editable, type, width, valueOptions },
 }) => {
-  const [value, setValue] = React.useState(initialValue);
+  const [value, setValue] = useState(initialValue);
 
   const onChange = (e) => {
     setValue(e.target.value);
@@ -20,9 +20,9 @@ const EditableCell = ({
     return dispatch(updateMyData({ index, id, value }));
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setValue(initialValue);
-  }, [initialValue]);
+  }, [initialValue]); 
 
   if (type === "singleSelect")
     return (

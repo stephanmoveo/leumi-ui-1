@@ -39,6 +39,7 @@ export const dataSlice = createSlice({
       state.data = state.originalData;
     },
     updateMyData: (state, action) => {
+      state.originalData = state.data;
       const result = state.data.map((row, i) => {
         if (i === action.payload.index) {
           return {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTable, usePagination, useSortBy, useExpanded } from "react-table";
 import EditableCell from "./EditableCell";
 import NonEditableCell from "./NonEditableCell";
@@ -15,8 +15,8 @@ const defaultColumn = {
   Cell2: NonEditableCell,
 };
 function Table({ columns, skipPageReset, renderRowSubComponent }) {
-  const [isEditable, setisEditable] = React.useState("Cell2");
-  const [isinEditMode, setIsinEditMode] = React.useState(false);
+  const [isEditable, setisEditable] = useState("Cell2");
+  const [isinEditMode, setIsinEditMode] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
 
   const {

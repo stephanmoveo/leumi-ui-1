@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Styles from "../StyledComponents/MainTableWarp";
 import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
 import { FlexDiv } from "../StyledComponents/Elements";
@@ -8,18 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteRow, getData } from "../../store/slices/dataSlice";
 
 function StyledTable() {
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getData(mokeJsonData));
   }, []);
-  const [datatoColumns, setDatatoColumns] = React.useState(
-    columnDataaa.slice(1)
-  );
-  const [skipPageReset, setSkipPageReset] = React.useState(false);
+  const [datatoColumns, setDatatoColumns] = useState(columnDataaa.slice(1));
+  const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
-  console.log(data);
   const dispatch = useDispatch();
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       {
         Header: "",
@@ -55,11 +52,11 @@ function StyledTable() {
     []
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSkipPageReset(false);
   }, [data]);
 
-  const renderRowSubComponent = React.useCallback(
+  const renderRowSubComponent = useCallback(
     ({ row }) => ({
       values: row.original.addInfo && row.original.addInfo,
     }),
