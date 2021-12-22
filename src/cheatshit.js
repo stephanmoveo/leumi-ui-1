@@ -284,70 +284,92 @@ const rowData = [
       />
     );
   };
-};
+}
 
+// {
+//   Header: "Delete",
+//   id:'delete',
+//   accessor: str => "delete",
+// }
 
-  // {
-  //   Header: "Delete",
-  //   id:'delete',
-  //   accessor: str => "delete",
-  // }
+// {
+//   Header: "Expand",
+//   columns: [
+//     {
+//       expander: true,
+//       Header: () => <strong>More</strong>,
+//       width: 65,
+//       Expander: ({ isExpanded, ...rest }) =>
+//         <div>
+//           {isExpanded
+//             ? <span>&#x2299;</span>
+//             : <span>&#x2295;</span>}
+//         </div>,
+//       style: {
+//         cursor: "pointer",
+//         fontSize: 25,
+//         padding: "0",
+//         textAlign: "center",
+//         userSelect: "none"
+//       },
+//       Footer: () => <span>&hearts;</span>
+//     }
+//   ]
+// }
 
+// {renderRowSubComponent({ row }).values &&
+//                       renderRowSubComponent({ row }).values.map((item) => {
+//                         return (
+//                           <div>
+//                             <p>Adress: {item.adress}</p>
+//                             <p>Country: {item.country}</p>
+//                             <p>Date: {item.date}</p>
+//                           </div>
+//                         );
+//                       })}
 
-  // {
-  //   Header: "Expand",
-  //   columns: [
-  //     {
-  //       expander: true,
-  //       Header: () => <strong>More</strong>,
-  //       width: 65,
-  //       Expander: ({ isExpanded, ...rest }) =>
-  //         <div>
-  //           {isExpanded
-  //             ? <span>&#x2299;</span>
-  //             : <span>&#x2295;</span>}
-  //         </div>,
-  //       style: {
-  //         cursor: "pointer",
-  //         fontSize: 25,
-  //         padding: "0",
-  //         textAlign: "center",
-  //         userSelect: "none"
-  //       },
-  //       Footer: () => <span>&hearts;</span>
-  //     }
-  //   ]
-  // }
+// border: none;
+//   background-color: transparent;
+//   color: #1976d2;
+//   font-weight: 900;
 
-
-  // {renderRowSubComponent({ row }).values &&
-  //                       renderRowSubComponent({ row }).values.map((item) => {
-  //                         return (
-  //                           <div>
-  //                             <p>Adress: {item.adress}</p>
-  //                             <p>Country: {item.country}</p>
-  //                             <p>Date: {item.date}</p>
-  //                           </div>
-  //                         );
-  //                       })}
-
-
-  // border: none;
-  //   background-color: transparent;
-  //   color: #1976d2;
-  //   font-weight: 900;
-
-
-
-  function getColumns() {
-    if (headers) {
-    return headers.map(key => {
+function getColumns() {
+  if (headers) {
+    return headers.map((key) => {
       return {
         Header: key.toString(),
-        accessor: key.toString()
+        accessor: key.toString(),
       };
     });
-  }}
+  }
+}
 
+/// <reference types="react-scripts" />
 
-  /// <reference types="react-scripts" />
+<td>
+  <input
+    placeholder={keyString}
+    name={keyString}
+    value={value}
+    onBlur={onBlur}
+    type="text"
+    onChange={onChange}
+  />
+</td>;
+<tr>
+      {editableRowArr.length > 0 && <td>+</td>}
+      {editableRowArr.length > 0 &&
+        Object.keys(editableRowArr[0]).map((keyString, i) => {
+          return keyString === undefined ? (
+            ""
+          ) :  (
+            <td key={i}>
+              <input
+                placeholder={keyString}
+                name={keyString}
+                type="text"
+              />
+            </td>
+          );
+        })}
+    </tr>

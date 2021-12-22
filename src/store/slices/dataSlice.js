@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   originalData: [],
+  isCell: "Cell",
 };
 
 export const dataSlice = createSlice({
@@ -15,7 +16,7 @@ export const dataSlice = createSlice({
     addRow: (state, action) => {
       const obj = {};
       action.payload.slice(1).forEach((item) => {
-        obj[item.accessor] = '';
+        obj[item.accessor] = "";
       });
       if (
         obj &&
@@ -51,10 +52,19 @@ export const dataSlice = createSlice({
       });
       state.data = result;
     },
+    confirmEdit: (state, action) => {
+      state.isCell = "Cell2";
+    },
   },
 });
 
-export const { addRow, deleteRow, resetData, updateMyData, getData } =
-  dataSlice.actions;
+export const {
+  addRow,
+  deleteRow,
+  resetData,
+  updateMyData,
+  getData,
+  confirmEdit,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;
