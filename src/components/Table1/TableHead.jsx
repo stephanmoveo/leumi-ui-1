@@ -6,7 +6,11 @@ export default function TableHead({ headerGroups }) {
   return (
     <thead>
       {headerGroups.map((headerGroup, i) => (
-        <tr {...headerGroup.getHeaderGroupProps()} key={i}>
+        <tr
+          {...headerGroup.getHeaderGroupProps()}
+          key={i}
+          style={{ backgroundColor: "transparent" }}
+        >
           {headerGroup.headers.map((column) => {
             return (
               <th

@@ -53,19 +53,19 @@ export default function TableBody({
             </tr>
             {row.isExpanded && renderRowSubComponent({ row }).values ? (
               <Fade in={!checked}>
-                <tr>
+                <tr style={{ backgroundColor: "#f1f4f9" }}>
                   <td colSpan={visibleColumns.length}>
-                    <FlexDiv style={{padding:'0 30px 0 0'}}>
+                    <FlexDiv style={{ padding: "0 30px 0 0" }}>
                       {renderRowSubComponent({ row }).values.length > 0 &&
                         Object.keys(
                           renderRowSubComponent({ row }).values[0]
                         ).map((keyString, i) => {
                           return (
-                            <AddInfoDiv>
+                            <AddInfoDiv key={i}>
                               <AddInfoP style={{ fontWeight: "900" }}>
                                 {keyString.split("_").join(" ")}
                               </AddInfoP>
-                              <AddInfoP key={i}>
+                              <AddInfoP >
                                 {
                                   renderRowSubComponent({ row }).values[0][
                                     keyString

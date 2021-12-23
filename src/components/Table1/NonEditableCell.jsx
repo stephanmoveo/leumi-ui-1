@@ -13,10 +13,10 @@ const NonEditableCell = ({ value: initialValue, column: { isLink, type } }) => {
   if (type === "date") {
     const newDate = ChangeFormateDate(value);
     if (!isLink) return newDate;
-    return <Link href="#">{newDate}</Link>;
+    return <Link  href="#">{newDate}</Link>;
   }
   if (!isLink) return value;
-  return <Link href="#">{value}</Link>;
+  return <Link  href="#">{value}</Link>;
 };
 
 export default NonEditableCell;
