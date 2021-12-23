@@ -1,9 +1,10 @@
 import Styledtable from "./components/Table1/Styledtable";
-
 function App() {
   return (
     <div className="App">
-      <Styledtable />
+      <div style={{width:'100%'}}>
+        <Styledtable />
+      </div>
     </div>
   );
 }

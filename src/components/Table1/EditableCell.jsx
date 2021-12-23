@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { DatePicker, InputSelect } from "../StyledComponents/Elements";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateMyData } from "../../store/slices/dataSlice";
 
 const EditableCell = ({
   value: initialValue,
-  row: { index },
-  column: { id, editable, type, width, valueOptions },
+  row: { index, original },
+  column: { id, editable, type, width, valueOptions, required },
 }) => {
   const [value, setValue] = useState(initialValue);
 
@@ -14,15 +14,14 @@ const EditableCell = ({
     setValue(e.target.value);
   };
   const dispatch = useDispatch();
-
   const onBlur = () => {
-    if (value === "") return alert("requiredddd");
+    // if (required) return alert("requiredddd");
     return dispatch(updateMyData({ index, id, value }));
   };
 
   useEffect(() => {
     setValue(initialValue);
-  }, [initialValue]); 
+  }, [initialValue]);
 
   if (type === "singleSelect")
     return (
@@ -44,7 +43,7 @@ const EditableCell = ({
   if (type === "date")
     return (
       <DatePicker
-        style={{ width: width }}
+        style={{ width: width, fontSize:'12px' }}
         type="date"
         disabled={editable === false}
         value={value}

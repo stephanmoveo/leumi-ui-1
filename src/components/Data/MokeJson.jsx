@@ -18,7 +18,7 @@ export const columnDataaa = [
   {
     Header: "סניף",
     accessor: "סניף",
-    // isSorted: true,
+    editable: false,
     type: "string",
     width: 80,
   },
@@ -46,7 +46,7 @@ export const columnDataaa = [
   {
     Header: "דרג ניהול",
     accessor: "דרג",
-    editable: false,
+    required: true,
     type: "string",
     width: 80,
   },
@@ -55,7 +55,7 @@ export const columnDataaa = [
     accessor: "תאריך",
     isLink: true,
     type: "date",
-    width: 120,
+    width: 90,
   },
 ];
 
@@ -70,18 +70,11 @@ export const mokeJsonData = [
     תאריך: "2013-01-08",
     addInfo: [
       {
-        adress: "tel aviv",
-        country: "israel",
-        date: "12/9/2021",
-        adess: "tel aviv",
-        counry: "israel",
-        dat: "12/9/2021",
-        aress: "tel aviv",
-        cuntry: "israel",
-        dt: "12/9/2021",
-        adrss: "tel aviv",
-        country: "israel",
-        date: "12/9/2021",
+        כתובת: "שדרות בן - גוריון 7, תל - אביב, ישראל",
+        מדינת_כתובת: "ישראל",
+        תאריך_הקמה: "20.11.19",
+        תאריך_סגירה: "20.11.19",
+        תאריך_סגמנטציה: "20.11.19",
       },
     ],
   },

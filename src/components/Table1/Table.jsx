@@ -7,17 +7,18 @@ import FooterBtn from "./FooterBtn";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
-import { TableWarp } from "../StyledComponents/Elements";
-import { useSelector } from "react-redux";
+import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
+import {useDispatch, useSelector } from "react-redux";
 
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
 };
-function Table({ columns, skipPageReset, renderRowSubComponent }) {
+function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
   const [isEditable, setisEditable] = useState("Cell2");
   const [isinEditMode, setIsinEditMode] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
+  const dispatch = useDispatch();
 
   const {
     getTableProps,
@@ -59,6 +60,7 @@ function Table({ columns, skipPageReset, renderRowSubComponent }) {
         <table {...getTableProps()}>
           <TableHead headerGroups={headerGroups} />
           <TableBody
+            checked={checked}
             getTableBodyProps={getTableBodyProps}
             page={page}
             prepareRow={prepareRow}
@@ -68,24 +70,26 @@ function Table({ columns, skipPageReset, renderRowSubComponent }) {
           />
         </table>
       </TableWarp>
-      {isinEditMode && (
-        <FooterBtn
-          setisEditable={setisEditable}
-          setIsinEditMode={setIsinEditMode}
+      <FlexDivJusRight>
+        {/* {isinEditMode && ( */}
+          <FooterBtn
+            setisEditable={setisEditable}
+            setIsinEditMode={setIsinEditMode}
+          />
+        {/* )} */}
+        <TablePagination
+          canPreviousPage={canPreviousPage}
+          canNextPage={canNextPage}
+          pageOptions={pageOptions}
+          pageCount={pageCount}
+          gotoPage={gotoPage}
+          nextPage={nextPage}
+          previousPage={previousPage}
+          setPageSize={setPageSize}
+          pageIndex={pageIndex}
+          pageSize={pageSize}
         />
-      )}
-      <TablePagination
-        canPreviousPage={canPreviousPage}
-        canNextPage={canNextPage}
-        pageOptions={pageOptions}
-        pageCount={pageCount}
-        gotoPage={gotoPage}
-        nextPage={nextPage}
-        previousPage={previousPage}
-        setPageSize={setPageSize}
-        pageIndex={pageIndex}
-        pageSize={pageSize}
-      />
+      </FlexDivJusRight>
     </>
   );
 }

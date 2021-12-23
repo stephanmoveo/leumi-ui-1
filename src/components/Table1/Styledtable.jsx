@@ -5,28 +5,51 @@ import { FlexDiv } from "../StyledComponents/Elements";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRow, getData } from "../../store/slices/dataSlice";
+import { deleteRow, getData, getColumns } from "../../store/slices/dataSlice";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 function StyledTable() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getData(mokeJsonData));
-  }, []);
+    dispatch(getColumns(columnDataaa));
+  }, [dispatch]);
   const [datatoColumns] = useState(columnDataaa.slice(1));
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
-  const dispatch = useDispatch();
+  const dataColumns = useSelector((state) => state.dataReducer.columnsData);
+  // const skipPageReset = useSelector((state) => state.editReducer.skipPageReset);
 
-  const columns = useMemo( 
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+
+  const columns = useMemo(
     () => [
       {
         Header: "",
-        id: "expander", 
-        Cell2: ({ row }) => { 
-          return (
-            <span {...row.getToggleRowExpandedProps()}>  
-              {row.isExpanded ? "-" : "+"}
-            </span>
-          );
+        id: "expander",
+        Cell2: ({ row }) => {
+          return row.original.addInfo ? (
+            <FormControlLabel
+              control={
+                <span
+                  onClick={handleChange}
+                  {...row.getToggleRowExpandedProps()}
+                >
+                  {" "}
+                  {row.isExpanded ? "-" : "+"}
+                </span>
+              }
+              label=""
+            />
+          ) : // <span {...row.getToggleRowExpandedProps()}>
+          //   {row.isExpanded ? "-" : "+"}
+          // </span>
+          null;
         },
         Cell: () => {
           return <div></div>;
@@ -53,7 +76,7 @@ function StyledTable() {
   );
 
   useEffect(() => {
-    setSkipPageReset(false);
+    setSkipPageReset(true);
   }, [data]);
 
   const renderRowSubComponent = useCallback(
@@ -64,11 +87,12 @@ function StyledTable() {
   );
   return (
     <Styles>
-      <h1>הגדרת מנהל</h1>
+      {/* <h1 style={{ textAlign: "right" }}>הגדרת מנהל</h1> */}
       <Table
         columns={columns}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
+        checked={checked}
       />
     </Styles>
   );

@@ -3,6 +3,7 @@ const initialState = {
   data: [],
   originalData: [],
   isCell: "Cell",
+  columnsData: [],
 };
 
 export const dataSlice = createSlice({
@@ -14,6 +15,7 @@ export const dataSlice = createSlice({
       state.originalData = action.payload;
     },
     addRow: (state, action) => {
+      state.isCell = "Cell";
       const obj = {};
       action.payload.slice(1).forEach((item) => {
         obj[item.accessor] = "";
@@ -31,7 +33,7 @@ export const dataSlice = createSlice({
     },
     deleteRow: (state, action) => {
       let r = window.confirm("Are You Sure You Want To Delete Row?");
-      if (r == true) {
+      if (r === true) {
         state.data.splice(action.payload, 1);
         state.originalData = state.data;
       }
@@ -40,6 +42,7 @@ export const dataSlice = createSlice({
       state.data = state.originalData;
     },
     updateMyData: (state, action) => {
+      state.isCell = "Cell";
       state.originalData = state.data;
       const result = state.data.map((row, i) => {
         if (i === action.payload.index) {
@@ -53,7 +56,14 @@ export const dataSlice = createSlice({
       state.data = result;
     },
     confirmEdit: (state, action) => {
-      state.isCell = "Cell2";
+      if (state.isCell === "Cell") {
+        state.isCell = "Cell2";
+      } else {
+        state.isCell = "Cell";
+      }
+    },
+    getColumns: (state, action) => {
+      state.columnsData = action.payload;
     },
   },
 });
@@ -65,6 +75,7 @@ export const {
   updateMyData,
   getData,
   confirmEdit,
+  getColumns,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

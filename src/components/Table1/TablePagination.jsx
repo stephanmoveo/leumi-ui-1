@@ -1,5 +1,6 @@
 import React from "react";
-
+import { PrimaryButton } from "../StyledComponents/Buttons";
+import { PageNumberInput, SelectPages } from "../StyledComponents/Elements";
 export default function TablePagination({
   canPreviousPage,
   canNextPage,
@@ -13,19 +14,35 @@ export default function TablePagination({
   pageSize,
 }) {
   return (
-    <div className="pagination">
-      <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+    <div className="pagination" style={{ textAlign: "right" }}>
+      <PrimaryButton
+        style={{ width: "20px" }}
+        onClick={() => gotoPage(0)}
+        disabled={!canPreviousPage}
+      >
         {"<<"}
-      </button>{" "}
-      <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+      </PrimaryButton>{" "}
+      <PrimaryButton
+        style={{ width: "20px" }}
+        onClick={() => previousPage()}
+        disabled={!canPreviousPage}
+      >
         {"<"}
-      </button>{" "}
-      <button onClick={() => nextPage()} disabled={!canNextPage}>
+      </PrimaryButton>{" "}
+      <PrimaryButton
+        style={{ width: "20px" }}
+        onClick={() => nextPage()}
+        disabled={!canNextPage}
+      >
         {">"}
-      </button>{" "}
-      <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+      </PrimaryButton>{" "}
+      <PrimaryButton
+        style={{ width: "20px" }}
+        onClick={() => gotoPage(pageCount - 1)}
+        disabled={!canNextPage}
+      >
         {">>"}
-      </button>{" "}
+      </PrimaryButton>{" "}
       <span>
         Page{" "}
         <strong>
@@ -34,7 +51,7 @@ export default function TablePagination({
       </span>
       <span>
         | Go to page:{" "}
-        <input
+        <PageNumberInput
           type="number"
           defaultValue={pageIndex + 1}
           onChange={(e) => {
@@ -44,7 +61,7 @@ export default function TablePagination({
           style={{ width: "100px" }}
         />
       </span>{" "}
-      <select
+      <SelectPages
         value={pageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));
@@ -55,7 +72,7 @@ export default function TablePagination({
             Show {pageSize}
           </option>
         ))}
-      </select>
+      </SelectPages>
     </div>
   );
 }

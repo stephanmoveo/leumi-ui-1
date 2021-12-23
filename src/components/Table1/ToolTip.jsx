@@ -3,7 +3,7 @@ import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 
 function ToolTip({ children, val, maxWidth }) {
-  const valLength = val != undefined && val.toString().length;
+  const valLength = val !== undefined && val.toString().length;
 
   const BootstrapTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} placement="top" arrow classes={{ popper: className }} />

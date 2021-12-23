@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   padding: 1rem;
+  margin: 5% auto;
+  max-width: 67%;
+  box-shadow: -1px 2px 31px -5px rgba(0,0,0,0.75);
+
   table {
     border-spacing: 0;
     direction: rtl;
+    width: 100%;
     thead {
       background-color: #fafbfc;
       position: sticky;
@@ -46,10 +51,12 @@ const Styles = styled.div`
       }
 
       input {
+        border-radius: 4px;
+        box-sizing: border-box;
         font-size: 1rem;
-        padding: 3px;
         margin: 0;
         border: 1px solid #d1d1d1;
+        padding: 6px 3px;
       }
     }
   }

@@ -373,3 +373,14 @@ function getColumns() {
           );
         })}
     </tr>
+
+const isEmpty = !Object.values(original).some((x) => x !== null && x !== "");
+
+function checkArray(data) {
+  for (var i = 0; i < data.length; i++) {
+    if (data[i] === "") return false;
+  }
+  return true;
+}
+
+
