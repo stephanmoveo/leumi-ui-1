@@ -26,7 +26,6 @@ export const FlexDivJusRight = styled.div`
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-
 `;
 export const Link = styled.a`
   text-decoration: none;
@@ -61,6 +60,9 @@ export const ThDiv = styled.span`
 
 export const SortByP = styled.p`
   margin: 0;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const InputSelect = styled.select`

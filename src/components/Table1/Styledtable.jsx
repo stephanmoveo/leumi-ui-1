@@ -36,13 +36,15 @@ function StyledTable() {
           return row.original.addInfo ? (
             <FormControlLabel
               control={
-                <span
-                  onClick={handleChange}
-                  {...row.getToggleRowExpandedProps()}
-                >
-                  {" "}
-                  {row.isExpanded ? "-" : "+"}
-                </span>
+                <ToolTip val= {row.isExpanded ? "הסתר" : "הצג"}>
+                  <span
+                    onClick={handleChange}
+                    {...row.getToggleRowExpandedProps()}
+                  >
+                    {" "}
+                    {row.isExpanded ? "-" : "+"}
+                  </span>
+                </ToolTip>
               }
               label=""
             />
@@ -58,7 +60,7 @@ function StyledTable() {
         Cell: ({ value, row }) => {
           return (
             <FlexDiv>
-              <ToolTip val='מחיקה'>
+              <ToolTip val="מחיקה">
                 <HighlightOffIcon
                   style={{ marginRight: "5px", color: "grey", width: "20px" }}
                   onClick={() => dispatch(deleteRow(row.index))}

@@ -23,6 +23,8 @@ function ToolTip({ children, val, maxWidth }) {
         valLength >= 14 ||
         val === "עריכה" ||
         val === "הוספת מנהל" ||
+        val === "הסתר" ||
+        val === "הצג" ||
         val === "מחיקה"
           ? val
           : ""

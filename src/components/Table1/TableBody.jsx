@@ -55,7 +55,7 @@ export default function TableBody({
               <Fade in={!checked}>
                 <tr>
                   <td colSpan={visibleColumns.length}>
-                    <FlexDiv>
+                    <FlexDiv style={{padding:'0 30px 0 0'}}>
                       {renderRowSubComponent({ row }).values.length > 0 &&
                         Object.keys(
                           renderRowSubComponent({ row }).values[0]
