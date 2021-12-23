@@ -18,7 +18,7 @@ export const OutlineButton = styled(Button)({
   fontSize: "22px",
 
   "&:hover": {
-    color: '#75a8f8',
+    color: "#75a8f8",
     backgroundColor: "white",
   },
 });

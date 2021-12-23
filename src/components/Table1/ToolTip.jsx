@@ -20,7 +20,12 @@ function ToolTip({ children, val, maxWidth }) {
   return (
     <BootstrapTooltip
       title={
-        valLength >= 14 || (val === "עריכה" || val === "הוספת מנהל") ? val : ""
+        valLength >= 14 ||
+        val === "עריכה" ||
+        val === "הוספת מנהל" ||
+        val === "מחיקה"
+          ? val
+          : ""
       }
     >
       {children}

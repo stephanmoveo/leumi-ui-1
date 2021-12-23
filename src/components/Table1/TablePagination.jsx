@@ -14,7 +14,7 @@ export default function TablePagination({
   pageSize,
 }) {
   return (
-    <div className="pagination" style={{ textAlign: "right" }}>
+    <div className="pagination" style={{ textAlign: "right",padding:'5px 0' }}>
       <PrimaryButton
         style={{ width: "20px" }}
         onClick={() => gotoPage(0)}

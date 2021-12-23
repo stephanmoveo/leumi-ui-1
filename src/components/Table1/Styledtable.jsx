@@ -7,6 +7,7 @@ import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteRow, getData, getColumns } from "../../store/slices/dataSlice";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import ToolTip from "./ToolTip";
 
 function StyledTable() {
   const dispatch = useDispatch();
@@ -19,7 +20,6 @@ function StyledTable() {
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
   const dataColumns = useSelector((state) => state.dataReducer.columnsData);
-  // const skipPageReset = useSelector((state) => state.editReducer.skipPageReset);
 
   const [checked, setChecked] = useState(false);
 
@@ -46,10 +46,7 @@ function StyledTable() {
               }
               label=""
             />
-          ) : // <span {...row.getToggleRowExpandedProps()}>
-          //   {row.isExpanded ? "-" : "+"}
-          // </span>
-          null;
+          ) : null;
         },
         Cell: () => {
           return <div></div>;
@@ -61,10 +58,12 @@ function StyledTable() {
         Cell: ({ value, row }) => {
           return (
             <FlexDiv>
-              <HighlightOffIcon
-                style={{ marginRight: "5px", color: "grey", width: "20px" }}
-                onClick={() => dispatch(deleteRow(row.index))}
-              />
+              <ToolTip val='מחיקה'>
+                <HighlightOffIcon
+                  style={{ marginRight: "5px", color: "grey", width: "20px" }}
+                  onClick={() => dispatch(deleteRow(row.index))}
+                />
+              </ToolTip>
               {value}
             </FlexDiv>
           );
@@ -87,7 +86,6 @@ function StyledTable() {
   );
   return (
     <Styles>
-      {/* <h1 style={{ textAlign: "right" }}>הגדרת מנהל</h1> */}
       <Table
         columns={columns}
         skipPageReset={skipPageReset}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const EditBtn = styled.div`
   display: flex;
   color: #126cf9;
-  font-size: 12px;
+  font-size: 16px;
   flex-direction: column;
   align-items: center;
   margin: 0 10px 0 0;
@@ -12,7 +12,7 @@ export const EditBtn = styled.div`
   }
   svg {
     margin-bottom: -8px;
-    width: 16px;
+    width: 24px;
   }
 `;
 
@@ -25,7 +25,7 @@ export const FlexDivJusRight = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
 
 `;
 export const Link = styled.a`
