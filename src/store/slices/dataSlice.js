@@ -4,20 +4,30 @@ const initialState = {
   originalData: [],
   isCell: "Cell",
   columnsData: [],
+  isDialog: false,
+  deleteRowId: "",
 };
 
 export const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
+    setIsDialog: (state, action) => {
+      if (action !== 0) {
+        state.deleteRowId = action.payload;
+        state.isDialog = !state.isDialog;
+      } else {
+        state.isDialog = !state.isDialog;
+      }
+    },
     getData: (state, action) => {
       state.data = action.payload;
       state.originalData = action.payload;
     },
     addRow: (state, action) => {
-      state.isCell = "Cell";
+      state.isCell = "Cell3";
       const obj = {};
-      action.payload.slice(1).forEach((item) => {
+      action.payload.slice(1).forEach((item) => {  
         obj[item.accessor] = "";
       });
       if (
@@ -32,11 +42,11 @@ export const dataSlice = createSlice({
       }
     },
     deleteRow: (state, action) => {
-      let r = window.confirm("Are You Sure You Want To Delete Row?");
-      if (r === true) {
-        state.data.splice(action.payload, 1);
-        state.originalData = state.data;
-      }
+      state.originalData = state.data;
+      const result = state.data.filter((item) => item.id !== state.deleteRowId);
+      state.data = result;
+      dataSlice.caseReducers.setIsDialog(state, 0);
+      state.deleteRowId = "";
     },
     resetData: (state, action) => {
       state.data = state.originalData;
@@ -76,6 +86,7 @@ export const {
   getData,
   confirmEdit,
   getColumns,
+  setIsDialog,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

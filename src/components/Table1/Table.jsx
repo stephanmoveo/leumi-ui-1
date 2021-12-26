@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { useTable, usePagination, useSortBy, useExpanded } from "react-table";
 import EditableCell from "./EditableCell";
 import NonEditableCell from "./NonEditableCell";
+import NewEditableCell from './NewEditableCell'
 import TablePagination from "./TablePagination";
 import FooterBtn from "./FooterBtn";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
 import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
-import {useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
+  Cell3: NewEditableCell,
 };
 function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
   const [isEditable, setisEditable] = useState("Cell2");
@@ -71,12 +73,14 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
         </table>
       </TableWarp>
       <FlexDivJusRight>
-        {/* {isinEditMode && ( */}
+        {isinEditMode ? (
           <FooterBtn
             setisEditable={setisEditable}
             setIsinEditMode={setIsinEditMode}
           />
-        {/* )} */}
+        ) : (
+          <div></div>
+        )}
         <TablePagination
           canPreviousPage={canPreviousPage}
           canNextPage={canNextPage}

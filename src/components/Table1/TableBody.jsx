@@ -17,7 +17,6 @@ export default function TableBody({
     backgroundColor: "#e7ebf2",
   };
   const isCell = useSelector((state) => state.dataReducer.isCell);
-
   return (
     <tbody {...getTableBodyProps()}>
       {page.map((row, i) => {
@@ -32,13 +31,13 @@ export default function TableBody({
                     key={index}
                     style={{ maxWidth: cell.column.width }}
                   >
-                    {cell.render(isCell)}
+                    {cell.render('Cell3')}
                   </td>
                 ) : (
                   <ToolTip
                     key={index}
                     val={cell.value}
-                    maxWidth={cell.column.width}
+                    maxWidth={cell.column.width}     
                   >
                     <td
                       {...cell.getCellProps()}
@@ -65,7 +64,7 @@ export default function TableBody({
                               <AddInfoP style={{ fontWeight: "900" }}>
                                 {keyString.split("_").join(" ")}
                               </AddInfoP>
-                              <AddInfoP >
+                              <AddInfoP>
                                 {
                                   renderRowSubComponent({ row }).values[0][
                                     keyString

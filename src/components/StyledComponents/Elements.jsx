@@ -26,6 +26,7 @@ export const FlexDivJusRight = styled.div`
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 15px;
 `;
 export const Link = styled.a`
   text-decoration: none;
@@ -47,6 +48,9 @@ export const DatePicker = styled.input`
   ::-webkit-calendar-picker-indicator {
     margin-left: 1px;
   }
+  ::-webkit-datetime-edit-text {
+    letter-spacing: -2px;
+  }
 `;
 
 export const AddInfoP = styled.p`
@@ -66,9 +70,10 @@ export const SortByP = styled.p`
 `;
 
 export const InputSelect = styled.select`
-  height: 26px;
+  padding: 6px 0;
   border: 1px solid #d1d1d1;
   font-size: 15px;
+  border-radius: 4px;
 `;
 
 export const AddInfoDiv = styled.div`

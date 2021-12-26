@@ -5,7 +5,12 @@ import { FlexDiv } from "../StyledComponents/Elements";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRow, getData, getColumns } from "../../store/slices/dataSlice";
+import {
+  deleteRow,
+  getData,
+  getColumns,
+  setIsDialog,
+} from "../../store/slices/dataSlice";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import ToolTip from "./ToolTip";
 
@@ -20,7 +25,6 @@ function StyledTable() {
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
   const dataColumns = useSelector((state) => state.dataReducer.columnsData);
-
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
@@ -59,11 +63,15 @@ function StyledTable() {
         accessor: columnDataaa[0].accessor,
         Cell: ({ value, row }) => {
           return (
-            <FlexDiv >
-              <ToolTip val="מחיקה" >
+            <FlexDiv>
+              <ToolTip val="מחיקה">
                 <HighlightOffIcon
-                  style={{ marginRight: "5px", color: "grey", width: "20px" }}
-                  onClick={() => dispatch(deleteRow(row.index))}
+                  style={{
+                    margin: "0 0 -3px 2px",
+                    color: "grey",
+                    width: "20px",
+                  }}
+                  onClick={() => dispatch(setIsDialog(row.original.id))}
                 />
               </ToolTip>
               {value}
