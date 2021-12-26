@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   originalData: [],
-  isCell: "Cell",
   columnsData: [],
   isDialog: false,
   deleteRowId: "",
+  isDisable: false,
 };
 
 export const dataSlice = createSlice({
@@ -25,9 +25,8 @@ export const dataSlice = createSlice({
       state.originalData = action.payload;
     },
     addRow: (state, action) => {
-      state.isCell = "Cell3";
       const obj = {};
-      action.payload.slice(1).forEach((item) => {  
+      action.payload.slice(1).forEach((item) => {
         obj[item.accessor] = "";
       });
       if (
@@ -52,7 +51,6 @@ export const dataSlice = createSlice({
       state.data = state.originalData;
     },
     updateMyData: (state, action) => {
-      state.isCell = "Cell";
       state.originalData = state.data;
       const result = state.data.map((row, i) => {
         if (i === action.payload.index) {
@@ -65,15 +63,14 @@ export const dataSlice = createSlice({
       });
       state.data = result;
     },
-    confirmEdit: (state, action) => {
-      if (state.isCell === "Cell") {
-        state.isCell = "Cell2";
-      } else {
-        state.isCell = "Cell";
-      }
-    },
     getColumns: (state, action) => {
       state.columnsData = action.payload;
+    },
+    setIsDisable: (state, action) => {
+      state.isDisable = !state.isDisable;
+    },
+    confirmEdit: (state, action) => {
+      console.log(action);
     },
   },
 });
@@ -84,9 +81,10 @@ export const {
   resetData,
   updateMyData,
   getData,
-  confirmEdit,
   getColumns,
   setIsDialog,
+  setIsDisable,
+  confirmEdit
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -1,7 +1,6 @@
 import React from "react";
 import ToolTip from "./ToolTip.jsx";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
-import { useSelector } from "react-redux";
 import Fade from "@mui/material/Fade";
 
 export default function TableBody({
@@ -16,7 +15,6 @@ export default function TableBody({
   const active = {
     backgroundColor: "#e7ebf2",
   };
-  const isCell = useSelector((state) => state.dataReducer.isCell);
   return (
     <tbody {...getTableBodyProps()}>
       {page.map((row, i) => {

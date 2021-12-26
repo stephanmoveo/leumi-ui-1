@@ -10,7 +10,7 @@ function ToolTip({ children, val, maxWidth }) {
       title={
         valLength >= 14 ||
         val === "עריכה" ||
-        val === "הוספת מנהל" ||
+        val === "הוספה" ||
         val === "הסתר" ||
         val === "הצג" ||
         val === "מחיקה"
@@ -30,6 +30,7 @@ function ToolTip({ children, val, maxWidth }) {
       backgroundColor: "#3e4b60",
       maxWidth: maxWidth,
       marginBottom: "3px !important",
+      marginRight:"-15px !important"
     },
   }));
   return <BootstrapTooltip>{children}</BootstrapTooltip>;

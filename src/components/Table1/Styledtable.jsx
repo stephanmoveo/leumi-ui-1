@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Styles from "../StyledComponents/MainTableWarp";
 import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
-import { FlexDiv } from "../StyledComponents/Elements";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteRow,
   getData,
   getColumns,
   setIsDialog,
@@ -21,12 +19,12 @@ function StyledTable() {
     dispatch(getData(mokeJsonData));
     dispatch(getColumns(columnDataaa));
   }, [dispatch]);
-  const [datatoColumns] = useState(columnDataaa.slice(1));
+  const [datatoColumns] = useState(columnDataaa);
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
   const dataColumns = useSelector((state) => state.dataReducer.columnsData);
   const [checked, setChecked] = useState(false);
-
+// console.log(data);
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
@@ -54,28 +52,18 @@ function StyledTable() {
             </ToolTip>
           ) : null;
         },
-        Cell: () => {
-          return <div></div>;
-        },
-      },
-      {
-        Header: columnDataaa[0].Header,
-        accessor: columnDataaa[0].accessor,
-        Cell: ({ value, row }) => {
+        Cell: ({ row }) => {
           return (
-            <FlexDiv>
-              <ToolTip val="מחיקה">
-                <HighlightOffIcon
-                  style={{
-                    margin: "0 0 -3px 2px",
-                    color: "grey",
-                    width: "20px",
-                  }}
-                  onClick={() => dispatch(setIsDialog(row.original.id))}
-                />
-              </ToolTip>
-              {value}
-            </FlexDiv>
+            <ToolTip val="מחיקה">
+              <HighlightOffIcon
+                style={{
+                  margin: "0 0 -2px 0",
+                  color: "grey",
+                  width: "20px",
+                }}
+                onClick={() => dispatch(setIsDialog(row.original.id))}
+              />
+            </ToolTip>
           );
         },
       },
@@ -101,7 +89,7 @@ function StyledTable() {
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
         checked={checked}
-      />
+        />
     </Styles>
   );
 }

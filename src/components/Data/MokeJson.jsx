@@ -8,6 +8,8 @@ export const columnDataaa = [
     Header: "שם המנהל",
     accessor: "שם",
     type: "string",
+    initValue:"מנהל חדש",
+    disableSortBy: true
   },
   {
     Header: "תעודה זהות",

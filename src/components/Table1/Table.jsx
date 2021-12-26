@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useTable, usePagination, useSortBy, useExpanded } from "react-table";
 import EditableCell from "./EditableCell";
 import NonEditableCell from "./NonEditableCell";
-import NewEditableCell from './NewEditableCell'
+import NewEditableCell from "./NewEditableCell";
 import TablePagination from "./TablePagination";
 import FooterBtn from "./FooterBtn";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
 import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const defaultColumn = {
   Cell: EditableCell,
@@ -19,9 +19,8 @@ const defaultColumn = {
 function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
   const [isEditable, setisEditable] = useState("Cell2");
   const [isinEditMode, setIsinEditMode] = useState(false);
-  const data = useSelector((state) => state.dataReducer.data);
-  const dispatch = useDispatch();
 
+  const data = useSelector((state) => state.dataReducer.data);
   const {
     getTableProps,
     getTableBodyProps,
@@ -38,12 +37,14 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
     setPageSize,
     visibleColumns,
     state: { pageIndex, pageSize },
+    
   } = useTable(
     {
       columns,
       data,
       defaultColumn,
       autoResetPage: !skipPageReset,
+      // disableSortBy: true,
     },
     useSortBy,
     useExpanded,
@@ -52,11 +53,11 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
   return (
     <>
       <TableEditBtn
+        gotoPage={gotoPage}
         setisEditable={setisEditable}
         isEditable={isEditable}
         columns={columns}
         setIsinEditMode={setIsinEditMode}
-        isinEditMode={isinEditMode}
       />
       <TableWarp>
         <table {...getTableProps()}>
@@ -75,8 +76,8 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
       <FlexDivJusRight>
         {isinEditMode ? (
           <FooterBtn
-            setisEditable={setisEditable}
             setIsinEditMode={setIsinEditMode}
+            setisEditable={setisEditable}
           />
         ) : (
           <div></div>

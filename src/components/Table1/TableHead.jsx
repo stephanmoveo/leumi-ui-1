@@ -3,6 +3,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { ThDiv, SortByP } from "../StyledComponents/Elements";
 export default function TableHead({ headerGroups }) {
+  //clearSortBy
   return (
     <thead>
       {headerGroups.map((headerGroup, i) => (
@@ -16,7 +17,7 @@ export default function TableHead({ headerGroups }) {
               <th
                 className="th-column"
                 {...column.getHeaderProps(column.getSortByToggleProps())}
-                onClick={() => column.toggleSortBy(!column.isSortedDesc)}
+                onClick={() => column.canSort && column.toggleSortBy(!column.isSortedDesc)}
                 style={{
                   width: column.id === "expander" ? "10px" : column.width,
                 }}

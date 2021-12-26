@@ -3,29 +3,28 @@ import { EditBtn, FlexDiv } from "../StyledComponents/Elements.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
-import { useDispatch, useSelector } from "react-redux";
-import { addRow, confirmEdit } from "../../store/slices/dataSlice.js";
+import { useDispatch } from "react-redux";
+import { addRow, setIsDisable } from "../../store/slices/dataSlice.js";
 
 export default function TableEditBtn({
   setisEditable,
   columns,
   isEditable,
   setIsinEditMode,
-  isinEditMode,
+  gotoPage,
 }) {
   const dispatch = useDispatch();
-  const isCell = useSelector((state) => state.dataReducer.isCell);
-
+  const pageZer0 = () => gotoPage(0);
   const addNewRow = () => {
+    dispatch(setIsDisable())
+    pageZer0();
     dispatch(addRow(columns));
     setIsinEditMode(true);
   };
 
   const editRow = () => {
-    setisEditable(isEditable==="Cell"?'Cell2':'Cell');
+    setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
     setIsinEditMode(true);
-    if (isCell === "Cell") return;
-    return dispatch(confirmEdit());
   };
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -36,7 +35,7 @@ export default function TableEditBtn({
             {"עריכה"}
           </EditBtn>
         </ToolTip>
-        <ToolTip val={"הוספת מנהל"}>
+        <ToolTip val={"הוספה"}>
           <EditBtn onClick={addNewRow}>
             <PersonAddIcon />
             {"הוספת מנהל"}

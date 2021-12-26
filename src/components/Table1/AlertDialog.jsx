@@ -4,21 +4,23 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRow } from "../../store/slices/dataSlice";
+import { deleteRow, setIsDialog } from "../../store/slices/dataSlice";
 
 export default function AlertDialog() {
   const open = useSelector((state) => state.dataReducer.isDialog);
   const dispatch = useDispatch();
 
-  const handleClose = () => {
-    dispatch(deleteRow())
-    
+  const agree = () => {
+    dispatch(deleteRow());
+  };
+
+  const disagree = () => {
+    dispatch(setIsDialog());
   };
 
   return (
     <Dialog
       open={open}
-      onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
@@ -27,10 +29,8 @@ export default function AlertDialog() {
       </DialogTitle>
 
       <DialogActions>
-        <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleClose} autoFocus>
-          Agree
-        </Button>
+        <Button onClick={disagree}>Disagree</Button>
+        <Button onClick={agree}>Agree</Button>
       </DialogActions>
     </Dialog>
   );

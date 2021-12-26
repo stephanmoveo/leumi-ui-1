@@ -15,7 +15,6 @@ const EditableCell = ({
   };
   const dispatch = useDispatch();
   const onBlur = () => {
-    // if (required) return alert("requiredddd");
     return dispatch(updateMyData({ index, id, value }));
   };
 
@@ -27,7 +26,7 @@ const EditableCell = ({
     return (
       <InputSelect
         value={value}
-        onChange={onChange}
+        onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
         style={{ width: width }}
       >
@@ -43,11 +42,11 @@ const EditableCell = ({
   if (type === "date")
     return (
       <DatePicker
-        style={{ width: width, fontSize:'12px' }}
+        style={{ width: width, fontSize: "12px" }}
         type="date"
         disabled={editable === false}
         value={value}
-        onChange={onChange}
+        onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
       />
     );
@@ -56,7 +55,7 @@ const EditableCell = ({
       style={{ width: width }}
       disabled={editable === false}
       value={value}
-      onChange={onChange}
+      onChange={(e) => setValue(e.target.value)}
       onBlur={onBlur}
     />
   );
