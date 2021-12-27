@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Styles from "../StyledComponents/MainTableWarp";
-import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Table from "./Table";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,26 +7,31 @@ import {
   getData,
   getColumns,
   setIsDialog,
+  confirmEdit,
 } from "../../store/slices/dataSlice";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import ToolTip from "./ToolTip";
 
-function StyledTable() {
+function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(mokeJsonData));
-    dispatch(getColumns(columnDataaa));
+    dispatch(getData(tableData));
+    dispatch(getColumns(columnData));
   }, [dispatch]);
-  const [datatoColumns] = useState(columnDataaa);
+  const [datatoColumns] = useState(columnData);
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
+  const triggerConfirm = useSelector(
+    (state) => state.dataReducer.triggerConfirm
+  );
   const dataColumns = useSelector((state) => state.dataReducer.columnsData);
-  const [checked, setChecked] = useState(false);
-// console.log(data);
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
+  console.log(data);
+  useEffect(() => {
+    if (triggerConfirm) {
+      newDataCallback(data);
+      dispatch(confirmEdit(false));
+    }
+  }, [triggerConfirm]);
 
   const columns = useMemo(
     () => [
@@ -37,18 +41,12 @@ function StyledTable() {
         Cell2: ({ row }) => {
           return row.original.addInfo ? (
             <ToolTip val={row.isExpanded ? "הסתר" : "הצג"}>
-              <FormControlLabel
-                control={
-                  <span
-                    onClick={handleChange}
-                    {...row.getToggleRowExpandedProps()}
-                  >
-                    {" "}
-                    {row.isExpanded ? "-" : "+"}
-                  </span>
-                }
-                label=""
-              />
+              <div>
+                <span {...row.getToggleRowExpandedProps()}>
+                  {" "}
+                  {row.isExpanded ? "-" : "+"}
+                </span>
+              </div>
             </ToolTip>
           ) : null;
         },
@@ -68,6 +66,13 @@ function StyledTable() {
         },
       },
       ...datatoColumns,
+      // {
+      //   Header: "",
+      //   id: "2",
+      //   Cell2: ({ row }) => {
+      //     return <div onClick={() => console.log(row.original)}>show</div>;
+      //   },
+      // },
     ],
     []
   );
@@ -82,14 +87,15 @@ function StyledTable() {
     }),
     []
   );
+
   return (
     <Styles>
       <Table
+      mainTitle={mainTitle}
         columns={columns}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
-        checked={checked}
-        />
+      />
     </Styles>
   );
 }

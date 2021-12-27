@@ -6,6 +6,7 @@ const initialState = {
   isDialog: false,
   deleteRowId: "",
   isDisable: false,
+  triggerConfirm: false,
 };
 
 export const dataSlice = createSlice({
@@ -27,7 +28,11 @@ export const dataSlice = createSlice({
     addRow: (state, action) => {
       const obj = {};
       action.payload.slice(1).forEach((item) => {
-        obj[item.accessor] = "";
+        if(item.initValue){
+          console.log('okk');
+         return obj[item.accessor] = item.initValue;
+        }
+        return obj[item.accessor] = "";
       });
       if (
         obj &&
@@ -70,7 +75,7 @@ export const dataSlice = createSlice({
       state.isDisable = !state.isDisable;
     },
     confirmEdit: (state, action) => {
-      console.log(action);
+      state.triggerConfirm = action.payload;
     },
   },
 });
@@ -84,7 +89,9 @@ export const {
   getColumns,
   setIsDialog,
   setIsDisable,
-  confirmEdit
+  confirmEdit,
 } = dataSlice.actions;
+
+export const getAllData = (state) => state.data;
 
 export default dataSlice.reducer;

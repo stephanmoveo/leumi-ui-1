@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "../StyledComponents/Elements.jsx";
 
-const NonEditableCell = ({ value: initialValue, column: { isLink, type } }) => {
+const NonEditableCell = ({ value: initialValue, column: { isLink, type} }) => {
   const ChangeFormateDate = (oldDate) => {
-    return oldDate.toString().split("-").reverse().join("-");
+    return oldDate.toString().split("-").reverse().join(".");
   };
 
   const [value, setValue] = useState(initialValue);

@@ -13,7 +13,8 @@ function ToolTip({ children, val, maxWidth }) {
         val === "הוספה" ||
         val === "הסתר" ||
         val === "הצג" ||
-        val === "מחיקה"
+        val === "מחיקה" ||
+        val === "פגינציה"
           ? val
           : ""
       }
@@ -30,7 +31,7 @@ function ToolTip({ children, val, maxWidth }) {
       backgroundColor: "#3e4b60",
       maxWidth: maxWidth,
       marginBottom: "3px !important",
-      marginRight:"-15px !important"
+      marginRight: "-1px !important",
     },
   }));
   return <BootstrapTooltip>{children}</BootstrapTooltip>;

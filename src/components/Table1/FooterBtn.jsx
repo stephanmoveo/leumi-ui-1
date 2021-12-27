@@ -5,10 +5,12 @@ import { resetData, confirmEdit } from "../../store/slices/dataSlice";
 
 export default function FooterBtn({ setisEditable, setIsinEditMode }) {
   const isDisable = useSelector((state) => state.dataReducer.isDisable);
+ 
   const dispatch = useDispatch();
   const confirm = () => {
+    dispatch(confirmEdit(true));
     setisEditable("Cell2");
-    setIsinEditMode(false)
+    setIsinEditMode(false);
   };
   return (
     <div>

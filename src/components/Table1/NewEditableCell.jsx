@@ -14,9 +14,6 @@ const NewEditableCell = ({
 }) => {
   const [value, setValue] = useState(initialValue);
 
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
   const dispatch = useDispatch();
   const onBlur = () => {
     if (required) {
@@ -58,11 +55,12 @@ const NewEditableCell = ({
         onBlur={onBlur}
       />
     );
+  // if (initValue) return <div>{initValue}</div>;
   return (
     <input
       style={{ width: width }}
-      defaultValue={initValue}
-      // value={value}
+      // defaultValue={initValue}
+      value={value}
       onChange={(e) => setValue(e.target.value)}
       onBlur={onBlur}
     />

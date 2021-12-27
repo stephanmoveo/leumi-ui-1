@@ -9,10 +9,10 @@ const EditableCell = ({
   column: { id, editable, type, width, valueOptions, required },
 }) => {
   const [value, setValue] = useState(initialValue);
-
-  const onChange = (e) => {
-    setValue(e.target.value);
+  const ChangeFormateDate = (oldDate) => {
+    return oldDate.split(".").reverse().join("-");
   };
+
   const dispatch = useDispatch();
   const onBlur = () => {
     return dispatch(updateMyData({ index, id, value }));
@@ -45,7 +45,7 @@ const EditableCell = ({
         style={{ width: width, fontSize: "12px" }}
         type="date"
         disabled={editable === false}
-        value={value}
+        value={ChangeFormateDate(value)}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
       />

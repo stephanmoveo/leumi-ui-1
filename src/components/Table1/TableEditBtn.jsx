@@ -3,10 +3,10 @@ import { EditBtn, FlexDiv } from "../StyledComponents/Elements.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addRow, setIsDisable } from "../../store/slices/dataSlice.js";
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 export default function TableEditBtn({
   setisEditable,
   columns,
@@ -14,7 +14,8 @@ export default function TableEditBtn({
   setIsinEditMode,
   gotoPage,
   setIsPagination,
-  isPagination
+  isPagination,
+  mainTitle,
 }) {
   const data = useSelector((state) => state.dataReducer.data);
 
@@ -57,14 +58,18 @@ export default function TableEditBtn({
         </ToolTip>
         <ToolTip val={"הוספה"}>
           <EditBtn onClick={addNewRow}>
-          {/* <EditBtn onClick={addinNewRow}> */}
             <PersonAddIcon />
             {"הוספת מנהל"}
           </EditBtn>
         </ToolTip>
-        <FormControlLabel control={<Switch defaultChecked onClick={()=>setIsPagination(!isPagination)}/>} label="TOGGLE PAGINATION" />
+        <EditBtn>
+          <Switch
+            defaultChecked
+            onClick={() => setIsPagination(!isPagination)}
+          />
+        </EditBtn>
       </FlexDiv>
-      <h1 style={{ textAlign: "right", margin: 0 }}>הגדרת מנהל</h1>
+      <h1 style={{ textAlign: "right", margin: 0 }}>{mainTitle} </h1>
     </div>
   );
 }
