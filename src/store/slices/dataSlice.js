@@ -26,10 +26,10 @@ export const dataSlice = createSlice({
       state.originalData = action.payload;
     },
     addRow: (state, action) => {
+      // state.originalData = state.data;
       const obj = {};
       action.payload.slice(1).forEach((item) => {
         if(item.initValue){
-          console.log('okk');
          return obj[item.accessor] = item.initValue;
         }
         return obj[item.accessor] = "";
@@ -42,7 +42,7 @@ export const dataSlice = createSlice({
         return;
       else {
         state.data.splice(0, 0, obj);
-        state.originalData = state.data;
+        // state.originalData = state.data;
       }
     },
     deleteRow: (state, action) => {

@@ -14,25 +14,25 @@ import ToolTip from "./ToolTip";
 function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getData(tableData));
-    dispatch(getColumns(columnData));
-  }, [dispatch]);
   const [datatoColumns] = useState(columnData);
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
   const triggerConfirm = useSelector(
     (state) => state.dataReducer.triggerConfirm
   );
-  const dataColumns = useSelector((state) => state.dataReducer.columnsData);
-  console.log(data);
   useEffect(() => {
     if (triggerConfirm) {
       newDataCallback(data);
       dispatch(confirmEdit(false));
     }
   }, [triggerConfirm]);
-
+  useEffect(() => {
+    dispatch(getData(tableData));
+    dispatch(getColumns(columnData));
+  }, [dispatch]);
+  useEffect(() => {
+    setSkipPageReset(true);
+  }, [data]);
   const columns = useMemo(
     () => [
       {
@@ -66,20 +66,9 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
         },
       },
       ...datatoColumns,
-      // {
-      //   Header: "",
-      //   id: "2",
-      //   Cell2: ({ row }) => {
-      //     return <div onClick={() => console.log(row.original)}>show</div>;
-      //   },
-      // },
     ],
     []
   );
-
-  useEffect(() => {
-    setSkipPageReset(true);
-  }, [data]);
 
   const renderRowSubComponent = useCallback(
     ({ row }) => ({
@@ -91,7 +80,7 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
   return (
     <Styles>
       <Table
-      mainTitle={mainTitle}
+        mainTitle={mainTitle}
         columns={columns}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}

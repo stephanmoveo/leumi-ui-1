@@ -383,4 +383,10 @@ function checkArray(data) {
   return true;
 }
 
-
+// {
+//   Header: "",
+//   id: "2",
+//   Cell2: ({ row }) => {
+//     return <div onClick={() => console.log(row.original)}>show</div>;
+//   },
+// }
