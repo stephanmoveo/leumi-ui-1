@@ -3,10 +3,10 @@ import ToolTip from "./ToolTip.jsx";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
 import Fade from "@mui/material/Fade";
 
-export default function TableBody({
+export default function TableBodyNoPagination({
   checked,
   getTableBodyProps,
-  page,
+  rows,
   prepareRow,
   isEditable,
   renderRowSubComponent,
@@ -18,7 +18,7 @@ export default function TableBody({
 
   return (
     <tbody {...getTableBodyProps()}>
-      {page.map((row, i) => {
+      {rows.map((row, i) => {
         prepareRow(row);
         return (
           <>

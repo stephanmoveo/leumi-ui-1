@@ -10,7 +10,7 @@ import TableHead from "./TableHead";
 import TableEditBtn from "./TableEditBtn";
 import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
 import { useSelector } from "react-redux";
-
+import TableBodyNoPagination from "./TableBodyNoPagination";
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
@@ -36,8 +36,8 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
     previousPage,
     setPageSize,
     visibleColumns,
+    rows,
     state: { pageIndex, pageSize },
-    
   } = useTable(
     {
       columns,
@@ -50,6 +50,7 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
     useExpanded,
     usePagination
   );
+  const [isPagination, setIsPagination] = useState(false);
   return (
     <>
       <TableEditBtn
@@ -58,19 +59,33 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
         isEditable={isEditable}
         columns={columns}
         setIsinEditMode={setIsinEditMode}
+        setIsPagination={setIsPagination}
+        isPagination={isPagination}
       />
       <TableWarp>
         <table {...getTableProps()}>
           <TableHead headerGroups={headerGroups} />
-          <TableBody
-            checked={checked}
-            getTableBodyProps={getTableBodyProps}
-            page={page}
-            prepareRow={prepareRow}
-            isEditable={isEditable}
-            renderRowSubComponent={renderRowSubComponent}
-            visibleColumns={visibleColumns}
-          />
+          {isPagination ? (
+            <TableBody
+              checked={checked}
+              getTableBodyProps={getTableBodyProps}
+              page={page}
+              prepareRow={prepareRow}
+              isEditable={isEditable}
+              renderRowSubComponent={renderRowSubComponent}
+              visibleColumns={visibleColumns}
+            />
+          ) : (
+            <TableBodyNoPagination
+              checked={checked}
+              getTableBodyProps={getTableBodyProps}
+              rows={rows}
+              prepareRow={prepareRow}
+              isEditable={isEditable}
+              renderRowSubComponent={renderRowSubComponent}
+              visibleColumns={visibleColumns}
+            />
+          )}
         </table>
       </TableWarp>
       <FlexDivJusRight>
@@ -82,7 +97,7 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
         ) : (
           <div></div>
         )}
-        <TablePagination
+       {isPagination && <TablePagination
           canPreviousPage={canPreviousPage}
           canNextPage={canNextPage}
           pageOptions={pageOptions}
@@ -93,7 +108,7 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked }) {
           setPageSize={setPageSize}
           pageIndex={pageIndex}
           pageSize={pageSize}
-        />
+        />}
       </FlexDivJusRight>
     </>
   );
