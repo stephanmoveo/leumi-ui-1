@@ -25,6 +25,8 @@ const EditableCell = ({
   if (type === "singleSelect")
     return (
       <InputSelect
+      className="myinput"
+
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
@@ -52,6 +54,8 @@ const EditableCell = ({
     );
   return (
     <input
+    className="myinput"
+
       style={{ width: width }}
       disabled={editable === false}
       value={value}

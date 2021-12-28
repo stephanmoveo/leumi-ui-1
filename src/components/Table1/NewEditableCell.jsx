@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { DatePicker, InputSelect } from "../StyledComponents/Elements";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  updateMyData,
-  setIsDisable,
-  confirmEdit,
-} from "../../store/slices/dataSlice";
+import { InputSelect } from "../StyledComponents/Elements";
+import { useDispatch } from "react-redux";
+import { updateMyData, setIsDisable } from "../../store/slices/dataSlice";
+import NewDatePicker from "../StyledComponents/NewDatePicker";
 
 const NewEditableCell = ({
   value: initialValue,
@@ -31,6 +28,7 @@ const NewEditableCell = ({
   if (type === "singleSelect")
     return (
       <InputSelect
+        className="myinput"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
@@ -45,21 +43,21 @@ const NewEditableCell = ({
         })}
       </InputSelect>
     );
+
   if (type === "date")
     return (
-      <DatePicker
-        style={{ width: width, fontSize: "12px" }}
-        type="date"
+      <NewDatePicker
+        setValue={setValue}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
       />
     );
-  // if (initValue) return <div>{initValue}</div>;
+
   return (
     <input
+      className="myinput"
       style={{ width: width }}
-      // defaultValue={initValue}
       value={value}
       onChange={(e) => setValue(e.target.value)}
       onBlur={onBlur}

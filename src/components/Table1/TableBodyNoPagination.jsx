@@ -33,11 +33,7 @@ export default function TableBodyNoPagination({
                     {cell.render('Cell3')}
                   </td>
                 ) : (
-                  <ToolTip
-                    key={index}
-                    val={cell.value}
-                    maxWidth={cell.column.width}     
-                  >
+                
                     <td
                       {...cell.getCellProps()}
                       key={index}
@@ -45,7 +41,8 @@ export default function TableBodyNoPagination({
                     >
                       {cell.render(isEditable)}
                     </td>
-                  </ToolTip>
+
+                  
                 );
               })}
             </tr>

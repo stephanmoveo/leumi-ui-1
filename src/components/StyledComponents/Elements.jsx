@@ -52,7 +52,22 @@ export const DatePicker = styled.input`
     letter-spacing: -2px;
   }
 `;
+export const MyDatePicker = styled.input`
+  padding: 9px 5px 9px 0;
+  width: 90px;
+  border: none;
+  background-color: transparent;
+`;
+export const DatePickerWarp = styled.div`
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d1d1;
 
+  svg{
+    width: 20px;
+  }
+`;
 export const AddInfoP = styled.p`
   margin: 5px;
 `;

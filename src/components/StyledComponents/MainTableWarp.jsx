@@ -50,7 +50,7 @@ const Styles = styled.div`
         border-right: 0;
       }
 
-      input {
+      .myinput {
         border-radius: 4px;
         box-sizing: border-box;
         font-size: 1rem;
