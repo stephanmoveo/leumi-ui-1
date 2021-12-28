@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { PrimaryButton, OutlineButton } from "../StyledComponents/Buttons";
+import { OutlineButton, PrimaryLargeBtn, BorderLessBtn } from "../StyledComponents/Buttons";
 import { useDispatch, useSelector } from "react-redux";
 import {
   resetData,
   confirmEdit,
   setIsDisable,
 } from "../../store/slices/dataSlice";
+import ButtonUnstyled from "@mui/base/ButtonUnstyled";
 
 export default function FooterBtn({ setisEditable, setIsinEditMode }) {
   const isDisable = useSelector((state) => state.dataReducer.isDisable);
@@ -19,14 +20,24 @@ export default function FooterBtn({ setisEditable, setIsinEditMode }) {
   const resetNewData = () => {
     dispatch(setIsDisable());
     dispatch(resetData());
-    setIsinEditMode(false);
+    // setIsinEditMode(false);
   };
+
+  function PrimaryButton(props) {
+    return <ButtonUnstyled {...props} component={PrimaryLargeBtn} />;
+  }
+  function PrimaryButtonOulined(props) {
+    return <ButtonUnstyled {...props} component={BorderLessBtn} />;
+  }
+
   return (
     <div>
-      <PrimaryButton size="large" onClick={confirm} disabled={isDisable}>
+      <PrimaryButton onClick={confirm} disabled={isDisable}>
         אישור
       </PrimaryButton>
-      <OutlineButton onClick={resetNewData}>ביטול</OutlineButton>
+      <PrimaryButtonOulined onClick={resetNewData} >
+      ביטול
+      </PrimaryButtonOulined>
     </div>
   );
 }

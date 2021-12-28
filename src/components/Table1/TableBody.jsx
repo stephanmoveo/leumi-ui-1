@@ -22,7 +22,6 @@ export default function TableBody({
           <>
             <tr {...row.getRowProps()} key={i} style={row.isExpanded && active}>
               {row.cells.map((cell, index) => {
-                console.log(cell.column.initValue);
                 return cell.value === "" ? (
                   <td
                     {...cell.getCellProps()}

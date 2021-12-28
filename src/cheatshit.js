@@ -390,3 +390,8 @@ function checkArray(data) {
 //     return <div onClick={() => console.log(row.original)}>show</div>;
 //   },
 // }
+
+// Primary Button
+// border-radius: 3px
+// background-image:
+// linear-gradient (to top, #126cf9 #479dff)

@@ -27,22 +27,6 @@ export default function TableEditBtn({
     dispatch(addRow(columns));
     setIsinEditMode(true);
   };
-  // const addinNewRow = () => {
-  //   const obj = {};
-  //   columns.slice(1).forEach((item) => {
-  //     obj[item.accessor] = "";
-  //   });
-  //   if (
-  //     obj &&
-  //     Object.keys(obj).length === 0 &&
-  //     Object.getPrototypeOf(obj) === Object.prototype
-  //   )
-  //     return;
-  //   else {
-  //     dispatch(addRow(obj));
-  //     console.log(obj);
-  //   }
-  // };
   const editRow = () => {
     setisEditable(isEditable === "Cell" ? "Cell2" : "Cell");
     setIsinEditMode(true);
@@ -59,7 +43,7 @@ export default function TableEditBtn({
         <ToolTip val={"הוספה"}>
           <EditBtn onClick={addNewRow}>
             <PersonAddIcon />
-            {"הוספת מנהל"}
+            {"הוספה"}
           </EditBtn>
         </ToolTip>
         <EditBtn>
