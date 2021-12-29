@@ -5,7 +5,6 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
 import { useDispatch, useSelector } from "react-redux";
 import { addRow, setIsDisable } from "../../store/slices/dataSlice.js";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 export default function TableEditBtn({
   setisEditable,
@@ -17,8 +16,6 @@ export default function TableEditBtn({
   isPagination,
   mainTitle,
 }) {
-  const data = useSelector((state) => state.dataReducer.data);
-
   const dispatch = useDispatch();
   const pageZer0 = () => gotoPage(0);
   const addNewRow = () => {

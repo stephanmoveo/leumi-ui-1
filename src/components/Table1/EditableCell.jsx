@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DatePicker, InputSelect } from "../StyledComponents/Elements";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMyData } from "../../store/slices/dataSlice";
 import NewDatePicker from "../StyledComponents/NewDatePicker";

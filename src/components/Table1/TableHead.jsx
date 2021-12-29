@@ -10,7 +10,6 @@ export default function TableHead({ headerGroups }) {
         <tr
           {...headerGroup.getHeaderGroupProps()}
           key={i}
-          // style={{ backgroundColor: "transparent" }}
         >
           {headerGroup.headers.map((column) => {
             return (

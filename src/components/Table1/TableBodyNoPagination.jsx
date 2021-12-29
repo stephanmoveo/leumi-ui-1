@@ -39,21 +39,15 @@ export default function TableBodyNoPagination({
                     componentsProps={{
                       tooltip: {
                         sx: {
-                          maxWidth:cell.column.width,
+                          maxWidth: cell.column.width,
                           marginBottom: "3px !important",
                           marginRight: "-10px !important",
                         },
                       },
                     }}
                     title={
-                      (cell.value !== undefined &&
-                        cell.value.toString().length >= 14) ||
-                      cell.value === "עריכה" ||
-                      cell.value === "הוספה" ||
-                      cell.value === "הסתר" ||
-                      cell.value === "הצג" ||
-                      cell.value === "מחיקה" ||
-                      cell.value === "פגינציה"
+                      cell.value !== undefined &&
+                      cell.value.toString().length >= 14
                         ? cell.value
                         : ""
                     }

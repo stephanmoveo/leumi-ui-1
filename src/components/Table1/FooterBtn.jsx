@@ -21,7 +21,6 @@ export default function FooterBtn({ setisEditable, setIsinEditMode }) {
   const resetNewData = () => {
     dispatch(setIsDisable());
     dispatch(resetData());
-    // setIsinEditMode(false);
   };
 
   function PrimaryButton(props) {

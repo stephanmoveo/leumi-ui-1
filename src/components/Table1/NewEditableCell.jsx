@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { InputSelect } from "../StyledComponents/Elements";
 import { useDispatch } from "react-redux";
 import { updateMyData, setIsDisable } from "../../store/slices/dataSlice";
 import NewDatePicker from "../StyledComponents/NewDatePicker";
@@ -50,7 +49,6 @@ const NewEditableCell = ({
 
   return (
     <TextField
-      // className="myinput"
       variant="outlined"
       style={{ width: width }}
       value={value}

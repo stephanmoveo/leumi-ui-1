@@ -18,7 +18,6 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
   const [datatoColumns] = useState(columnData);
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
-  console.log(data);
   const triggerConfirm = useSelector(
     (state) => state.dataReducer.triggerConfirm
   );

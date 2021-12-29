@@ -11,7 +11,6 @@ import TableEditBtn from "./TableEditBtn";
 import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
 import { useSelector } from "react-redux";
 import TableBodyNoPagination from "./TableBodyNoPagination";
-import { getAllData } from "../../store/slices/dataSlice";
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
@@ -20,7 +19,6 @@ const defaultColumn = {
 function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTitle}) {
   const [isEditable, setisEditable] = useState("Cell2");
   const [isinEditMode, setIsinEditMode] = useState(false);
-  // const allData = useSelector(getAllData);
   const data = useSelector((state) => state.dataReducer.data);
   const {
     getTableProps,
@@ -45,7 +43,6 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTi
       data,
       defaultColumn,
       autoResetPage: !skipPageReset,
-      // disableSortBy: true,
     },
     useSortBy,
     useExpanded,

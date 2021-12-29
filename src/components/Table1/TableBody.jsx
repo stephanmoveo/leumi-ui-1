@@ -1,5 +1,4 @@
 import React from "react";
-import ToolTip from "./ToolTip.jsx";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
 import Tooltip from "@mui/material/Tooltip";
 
@@ -38,21 +37,15 @@ export default function TableBody({
                     componentsProps={{
                       tooltip: {
                         sx: {
-                          maxWidth:cell.column.width,
+                          maxWidth: cell.column.width,
                           marginBottom: "3px !important",
                           marginRight: "-12px !important",
                         },
                       },
                     }}
                     title={
-                      (cell.value !== undefined &&
-                        cell.value.toString().length >= 14) ||
-                      cell.value === "עריכה" ||
-                      cell.value === "הוספה" ||
-                      cell.value === "הסתר" ||
-                      cell.value === "הצג" ||
-                      cell.value === "מחיקה" ||
-                      cell.value === "פגינציה"
+                      cell.value !== undefined &&
+                      cell.value.toString().length >= 14
                         ? cell.value
                         : ""
                     }
