@@ -77,6 +77,7 @@ export const dataSlice = createSlice({
     confirmEdit: (state, action) => {
       state.triggerConfirm = action.payload;
     },
+
   },
 });
 

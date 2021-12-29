@@ -10,6 +10,7 @@ import {
   confirmEdit,
 } from "../../store/slices/dataSlice";
 import ToolTip from "./ToolTip";
+import AlertDialog from "../Table1/AlertDialog";
 
 function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
   const dispatch = useDispatch();
@@ -86,6 +87,7 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
       />
+      <AlertDialog/>
     </Styles>
   );
 }

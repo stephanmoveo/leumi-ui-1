@@ -1,5 +1,5 @@
+import React from "react";
 import Styledtable from "./components/Table1/Styledtable";
-import AlertDialog from "./components/Table1/AlertDialog";
 import { columnDataaa, mokeJsonData } from "./components/Data/MokeJson";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           newDataCallback={logDataReceived}
           mainTitle='הגדרת מנהל'
         />
-        <AlertDialog />
+        {/* <AlertDialog /> */}
       </div>
     </div>
   );

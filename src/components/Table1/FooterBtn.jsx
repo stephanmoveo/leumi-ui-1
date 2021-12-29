@@ -13,9 +13,10 @@ export default function FooterBtn({ setisEditable, setIsinEditMode }) {
 
   const dispatch = useDispatch();
   const confirm = () => {
-    dispatch(confirmEdit(true));
     setisEditable("Cell2");
     setIsinEditMode(false);
+    dispatch(confirmEdit(true));
+    
   };
   const resetNewData = () => {
     dispatch(setIsDisable());

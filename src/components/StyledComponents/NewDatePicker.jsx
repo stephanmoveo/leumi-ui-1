@@ -1,5 +1,5 @@
 import * as React from "react";
-import AdapterDateFns from "@mui/lab/AdapterMoment";
+import AdapterMoment from "@mui/lab/AdapterMoment";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
 import { MyDatePicker, DatePickerWarp } from "./Elements";
@@ -11,7 +11,7 @@ export default function NewDatePicker({onBlur, setValue, value}) {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterMoment} >
       <DatePicker
         value={value}
         onChange={(newValue) => {
@@ -19,7 +19,7 @@ export default function NewDatePicker({onBlur, setValue, value}) {
         }}
         renderInput={({inputRef, inputProps, InputProps }) => (
           <DatePickerWarp onBlur={onBlur}>
-            <MyDatePicker ref={inputRef} {...inputProps} />
+            <MyDatePicker ref={inputRef} {...inputProps}/>
             {InputProps?.endAdornment}
           </DatePickerWarp>
         )}

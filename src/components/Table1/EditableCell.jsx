@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { DatePicker, InputSelect } from "../StyledComponents/Elements";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMyData } from "../../store/slices/dataSlice";
-
+import NewDatePicker from "../StyledComponents/NewDatePicker";
+import TextField from "@mui/material/TextField";
+import SelectInput from "../StyledComponents/SelectInput";
 const EditableCell = ({
   value: initialValue,
   row: { index, original },
   column: { id, editable, type, width, valueOptions, required },
 }) => {
   const [value, setValue] = useState(initialValue);
-  const ChangeFormateDate = (oldDate) => {
-    return oldDate.split(".").reverse().join("-");
-  };
 
   const dispatch = useDispatch();
   const onBlur = () => {
@@ -24,38 +23,27 @@ const EditableCell = ({
 
   if (type === "singleSelect")
     return (
-      <InputSelect
-      className="myinput"
-
+      <SelectInput
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        handleChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
-        style={{ width: width }}
-      >
-        {valueOptions.map((item, i) => {
-          return (
-            <option value={item.label} key={i}>
-              {item.label}
-            </option>
-          );
-        })}
-      </InputSelect>
+        valueOptions={valueOptions}
+      />
     );
   if (type === "date")
     return (
-      <DatePicker
-        style={{ width: width, fontSize: "12px" }}
-        type="date"
-        disabled={editable === false}
-        value={ChangeFormateDate(value)}
+      <NewDatePicker
+        setValue={setValue}
+        value={value}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
+        width={width}
       />
     );
-  return (
-    <input
-    className="myinput"
 
+  return (
+    <TextField
+      variant="outlined"
       style={{ width: width }}
       disabled={editable === false}
       value={value}

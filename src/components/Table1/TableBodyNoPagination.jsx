@@ -1,7 +1,7 @@
 import React from "react";
-import ToolTip from "./ToolTip.jsx";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
 import Fade from "@mui/material/Fade";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function TableBodyNoPagination({
   checked,
@@ -30,10 +30,34 @@ export default function TableBodyNoPagination({
                     key={index}
                     style={{ maxWidth: cell.column.width }}
                   >
-                    {cell.render('Cell3')}
+                    {cell.render("Cell3")}
                   </td>
                 ) : (
-                
+                  <Tooltip
+                    arrow
+                    placement="top"
+                    componentsProps={{
+                      tooltip: {
+                        sx: {
+                          maxWidth:cell.column.width,
+                          marginBottom: "3px !important",
+                          marginRight: "-10px !important",
+                        },
+                      },
+                    }}
+                    title={
+                      (cell.value !== undefined &&
+                        cell.value.toString().length >= 14) ||
+                      cell.value === "עריכה" ||
+                      cell.value === "הוספה" ||
+                      cell.value === "הסתר" ||
+                      cell.value === "הצג" ||
+                      cell.value === "מחיקה" ||
+                      cell.value === "פגינציה"
+                        ? cell.value
+                        : ""
+                    }
+                  >
                     <td
                       {...cell.getCellProps()}
                       key={index}
@@ -41,8 +65,7 @@ export default function TableBodyNoPagination({
                     >
                       {cell.render(isEditable)}
                     </td>
-
-                  
+                  </Tooltip>
                 );
               })}
             </tr>

@@ -53,7 +53,7 @@ export const DatePicker = styled.input`
   }
 `;
 export const MyDatePicker = styled.input`
-  padding: 9px 5px 9px 0;
+  padding: 20px 5px 20px 0;
   width: 90px;
   border: none;
   background-color: transparent;
@@ -64,7 +64,7 @@ export const DatePickerWarp = styled.div`
   align-items: center;
   border: 1px solid #d1d1d1;
 
-  svg{
+  svg {
     width: 20px;
   }
 `;

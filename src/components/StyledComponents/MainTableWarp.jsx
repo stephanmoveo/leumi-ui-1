@@ -14,6 +14,7 @@ const Styles = styled.div`
       background-color: #fafbfc;
       position: sticky;
       top: 0;
+      z-index: 1;
       th {
         border-bottom: 1px solid #e9e9e9;
       }
@@ -56,7 +57,7 @@ const Styles = styled.div`
         font-size: 1rem;
         margin: 0;
         border: 1px solid #d1d1d1;
-        padding: 6px 3px;
+        padding: 17px 3px;
       }
     }
   }

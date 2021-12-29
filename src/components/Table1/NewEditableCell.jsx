@@ -3,6 +3,8 @@ import { InputSelect } from "../StyledComponents/Elements";
 import { useDispatch } from "react-redux";
 import { updateMyData, setIsDisable } from "../../store/slices/dataSlice";
 import NewDatePicker from "../StyledComponents/NewDatePicker";
+import TextField from "@mui/material/TextField";
+import SelectInput from "../StyledComponents/SelectInput";
 
 const NewEditableCell = ({
   value: initialValue,
@@ -27,21 +29,12 @@ const NewEditableCell = ({
 
   if (type === "singleSelect")
     return (
-      <InputSelect
-        className="myinput"
+      <SelectInput
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        handleChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
-        style={{ width: width }}
-      >
-        {valueOptions.map((item, i) => {
-          return (
-            <option value={item.label} key={i}>
-              {item.label}
-            </option>
-          );
-        })}
-      </InputSelect>
+        valueOptions={valueOptions}
+      />
     );
 
   if (type === "date")
@@ -51,12 +44,14 @@ const NewEditableCell = ({
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
+        width={width}
       />
     );
 
   return (
-    <input
-      className="myinput"
+    <TextField
+      // className="myinput"
+      variant="outlined"
       style={{ width: width }}
       value={value}
       onChange={(e) => setValue(e.target.value)}

@@ -4,7 +4,6 @@ import { styled } from "@mui/material/styles";
 
 function ToolTip({ children, val, maxWidth }) {
   const valLength = val !== undefined && val.toString().length;
-
   const BootstrapTooltip = styled(({ className, ...props }) => (
     <Tooltip
       title={
@@ -31,7 +30,7 @@ function ToolTip({ children, val, maxWidth }) {
       backgroundColor: "#3e4b60",
       maxWidth: maxWidth,
       marginBottom: "3px !important",
-      marginRight: "-1px !important",
+      marginRight: "-12px !important",
     },
   }));
   return <BootstrapTooltip>{children}</BootstrapTooltip>;
