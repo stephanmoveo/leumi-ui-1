@@ -1,6 +1,7 @@
 import React from "react";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
 import Tooltip from "@mui/material/Tooltip";
+import { useSelector } from "react-redux";
 
 export default function TableBody({
   getTableBodyProps,
@@ -13,6 +14,8 @@ export default function TableBody({
   const active = {
     backgroundColor: "#e7ebf2",
   };
+  const isNewRow = useSelector((state) => state.dataReducer.isNewRow);
+
   return (
     <tbody {...getTableBodyProps()}>
       {page.map((row, i) => {
@@ -21,7 +24,7 @@ export default function TableBody({
           <>
             <tr {...row.getRowProps()} key={i} style={row.isExpanded && active}>
               {row.cells.map((cell, index) => {
-                return cell.value === "" ? (
+                return isNewRow && i === 0 ? (
                   <td
                     {...cell.getCellProps()}
                     key={index}

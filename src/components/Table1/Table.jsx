@@ -11,16 +11,19 @@ import TableEditBtn from "./TableEditBtn";
 import { TableWarp, FlexDivJusRight } from "../StyledComponents/Elements";
 import { useSelector } from "react-redux";
 import TableBodyNoPagination from "./TableBodyNoPagination";
+
+
 const defaultColumn = {
   Cell: EditableCell,
   Cell2: NonEditableCell,
   Cell3: NewEditableCell,
 };
+
+
 function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTitle, isPagination , editMode}) {
   const [isEditable, setisEditable] = useState("Cell2");
   const [isinEditMode, setIsinEditMode] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
-  const dataResult = useSelector((state) => state.dataReducer.dataResult);
 
   const {
     getTableProps,
@@ -50,7 +53,6 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTi
     useExpanded,
     usePagination
   );
-  // const [isPagination, setIsPagination] = useState(false);
   return (
     <>
      {editMode && <TableEditBtn
@@ -60,8 +62,6 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTi
         isEditable={isEditable}
         columns={columns}
         setIsinEditMode={setIsinEditMode}
-        // setIsPagination={setIsPagination}
-        // isPagination={isPagination}
       />}
       <TableWarp>
         <table {...getTableProps()}>

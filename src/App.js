@@ -3,6 +3,7 @@ import "./Style.scss";
 import Styledtable from "./components/Table1/Styledtable";
 import { columnDataaa, mokeJsonData } from "./components/Data/MokeJson";
 import TextInput from "./components/Form-elements/TextInput";
+import TextArea from "./components/Form-elements/TextArea";
 
 function App() {
   const [value, setValue] = useState("");
@@ -13,11 +14,10 @@ function App() {
   };
   const handleChange = (e) => {
     setValue(e.target.value);
-    setError(false)
+    setError(false);
   };
   const onBlur = () => {
-    if (value.length < 5) 
-    return setError(true);
+    if (value.length < 5) return setError(true);
     return setError(false);
   };
   return (
@@ -44,6 +44,7 @@ function App() {
           helperText="שדה לא נכוןןן"
           onBlur={onBlur}
         /> */}
+        {/* <TextArea label="הקלדה" value={value} handleChange={handleChange} /> */}
       </div>
     </div>
   );

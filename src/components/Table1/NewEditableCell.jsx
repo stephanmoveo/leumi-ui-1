@@ -7,8 +7,8 @@ import TextInput from "../../components/Form-elements/TextInput";
 
 const NewEditableCell = ({
   value: initialValue,
-  row: { index, original },
-  column: { id, editable, type, width, valueOptions, required, initValue },
+  row: { index },
+  column: { id, type, width, valueOptions, required },
 }) => {
 
   const dispatch = useDispatch();
@@ -21,16 +21,6 @@ const NewEditableCell = ({
   useEffect(() => {
     if (required) dispatch(setIsDisable(true));
   }, []);
-
-  const handleChange = (e) => {
-    if (required) {
-    if (value.length >= 0) {
-      dispatch(setIsDisable(false));
-      }
-    }
-    setValue(e.target.value);
-    dispatch(updateMyData({ index, id, value }));
-  };
 
   const onBlur = () => {
     if (required) {
@@ -46,7 +36,6 @@ const NewEditableCell = ({
       <SelectInput
         value={value}
         handleChange={(e) => setValue(e.target.value)}
-        // handleChange={handleChange}
         onBlur={onBlur}
         valueOptions={valueOptions}
       />
@@ -57,8 +46,7 @@ const NewEditableCell = ({
       <NewDatePicker
         setValue={setValue}
         value={value}
-        // onChange={(e) => setValue(e.target.value)}
-        // handleChange={handleChange}
+        onChange={(e) => setValue(e.target.value)}
         onBlur={onBlur}
         width={width}
       />
@@ -66,11 +54,9 @@ const NewEditableCell = ({
 
   return (
     <TextInput
-      // variant="outlined"
       style={{ width: width }}
       value={value}
       handleChange={(e) => setValue(e.target.value)}
-      // handleChange={handleChange}
       onBlur={onBlur}
     />
   );

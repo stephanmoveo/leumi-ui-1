@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "../StyledComponents/Elements.jsx";
-import ToolTip from "./ToolTip.jsx";
 
 const NonEditableCell = ({ value: initialValue, column: { isLink, type } }) => {
   const [value, setValue] = useState(initialValue);

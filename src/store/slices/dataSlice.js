@@ -8,7 +8,7 @@ const initialState = {
   deleteRowId: "",
   isDisable: false,
   triggerConfirm: false,
-  dataLength: Number,
+  isNewRow: false,
 };
 
 export const dataSlice = createSlice({
@@ -26,7 +26,6 @@ export const dataSlice = createSlice({
     getData: (state, action) => {
       state.data = action.payload;
       state.originalData = action.payload;
-      // state.dataLength = action.payload.length;
     },
     addRow: (state, action) => {
       // state.originalData = state.data;
@@ -44,7 +43,6 @@ export const dataSlice = createSlice({
       )
         return;
       else {
-        // state.data.splice(0, 0, obj);
         const newArr = state.data.splice(0, 0, obj);
         if (newArr.length <= 0) return;
         state.data = newArr;
@@ -72,9 +70,6 @@ export const dataSlice = createSlice({
         return row;
       });
       state.data = result;
-      // if(state.data!== state.dataResult)
-      // state.data = state.dataResult;
-      // console.log(result);
     },
     getColumns: (state, action) => {
       state.columnsData = action.payload;
@@ -83,9 +78,11 @@ export const dataSlice = createSlice({
       state.isDisable = action.payload;
     },
     confirmEdit: (state, action) => {
-      // if (state.dataResult.length >= 0) return;
-      // state.data = state.dataResult;
       state.triggerConfirm = action.payload;
+      state.isNewRow = false;
+    },
+    setIsNewRow: (state, action) => {
+      state.isNewRow = true;
     },
   },
 });
@@ -100,6 +97,7 @@ export const {
   setIsDialog,
   setIsDisable,
   confirmEdit,
+  setIsNewRow,
 } = dataSlice.actions;
 
 export const getAllData = (state) => state.data;

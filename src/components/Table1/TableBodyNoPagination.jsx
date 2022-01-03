@@ -2,9 +2,7 @@ import React from "react";
 import { FlexDiv, AddInfoP, AddInfoDiv } from "../StyledComponents/Elements";
 import Fade from "@mui/material/Fade";
 import Tooltip from "@mui/material/Tooltip";
-import { useDispatch, useSelector } from "react-redux";
-//isNewRow
-import NewEditableCell from "./NewEditableCell";
+import { useSelector } from "react-redux";
 export default function TableBodyNoPagination({
   checked,
   getTableBodyProps,
@@ -14,6 +12,7 @@ export default function TableBodyNoPagination({
   renderRowSubComponent,
   visibleColumns,
 }) {
+  const isNewRow = useSelector((state) => state.dataReducer.isNewRow);
 
   const active = {
     backgroundColor: "#e7ebf2",
@@ -24,16 +23,15 @@ export default function TableBodyNoPagination({
         prepareRow(row);
         return (
           <>
-            <tr {...row.getRowProps()} key={i} style={row.isExpanded && active}>        
+            <tr {...row.getRowProps()} key={i} style={row.isExpanded && active}>
               {row.cells.map((cell, index) => {
-                return cell.value === "" ? (
+                return isNewRow && i === 0 ? (
                   <td
                     {...cell.getCellProps()}
                     key={index}
                     style={{ maxWidth: cell.column.width }}
                   >
                     {cell.render("Cell3")}
-                  
                   </td>
                 ) : (
                   <Tooltip

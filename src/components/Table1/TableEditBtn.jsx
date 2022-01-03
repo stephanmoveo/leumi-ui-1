@@ -3,22 +3,24 @@ import { EditBtn, FlexDiv } from "../StyledComponents/Elements.jsx";
 import EditIcon from "@mui/icons-material/Edit";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import ToolTip from "./ToolTip";
-import { useDispatch, useSelector } from "react-redux";
-import { addRow, setIsDisable } from "../../store/slices/dataSlice.js";
-import Switch from "@mui/material/Switch";
+import { useDispatch } from "react-redux";
+import {
+  addRow,
+  setIsDisable,
+  setIsNewRow,
+} from "../../store/slices/dataSlice.js";
 export default function TableEditBtn({
   setisEditable,
   columns,
   isEditable,
   setIsinEditMode,
   gotoPage,
-  // setIsPagination,
-  // isPagination,
   mainTitle,
 }) {
   const dispatch = useDispatch();
   const pageZer0 = () => gotoPage(0);
   const addNewRow = () => {
+    dispatch(setIsNewRow());
     dispatch(setIsDisable());
     pageZer0();
     dispatch(addRow(columns));
@@ -43,12 +45,6 @@ export default function TableEditBtn({
             {"הוספה"}
           </EditBtn>
         </ToolTip>
-        {/* <EditBtn>
-          <Switch
-            defaultChecked
-            onClick={() => setIsPagination(!isPagination)}
-          />
-        </EditBtn> */}
       </FlexDiv>
       <h1 style={{ textAlign: "right", margin: 0 }}>{mainTitle} </h1>
     </div>
