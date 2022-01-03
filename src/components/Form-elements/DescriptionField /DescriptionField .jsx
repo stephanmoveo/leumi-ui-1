@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import { withStyles, TextField, InputAdornment } from "@material-ui/core";
+import React from "react";
+import { withStyles, TextField } from "@material-ui/core";
 import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 
 const StyledTextField = withStyles({
   root: {
+    "& .MuiInputBase-root":{
+      minHeight: "67px",
+
+    },
     "& textarea": {
       direction: "rtl",
       padding: "5px 8px",
-      maxHeight: "30px",
+      // minHeight: "40px",
     },
     "& label": {
       transformOrigin: "top right",
@@ -60,9 +64,9 @@ const StyledTextField = withStyles({
   },
 })(TextField);
 
-function TextArea({
+function DescriptionField ({
   label = "",
-  id = "",
+  id,
   handleChange,
   value = "",
   required,
@@ -75,6 +79,7 @@ function TextArea({
 }) {
   return (
     <StyledTextField
+    id={id}
       multiline
       variant="outlined"
       label={label}
@@ -91,10 +96,9 @@ function TextArea({
       error={error}
       helperText={error && helperText}
       onBlur={onBlur}
-      // autoFocus
       placeholder={placeholder}
     />
   );
 }
 
-export default TextArea;
+export default DescriptionField ;

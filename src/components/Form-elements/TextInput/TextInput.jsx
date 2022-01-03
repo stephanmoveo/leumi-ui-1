@@ -62,7 +62,7 @@ const StyledTextField = withStyles({
 
 function TextInput({
   label = "",
-  id = "",
+  id,
   handleChange,
   value = "",
   required,
@@ -71,10 +71,11 @@ function TextInput({
   error,
   helperText = "",
   onBlur,
-  placeholder="",
+  placeholder = "",
 }) {
   return (
     <StyledTextField
+      id={id}
       variant="outlined"
       label={label}
       onChange={handleChange}
@@ -90,7 +91,6 @@ function TextInput({
       error={error}
       helperText={error && helperText}
       onBlur={onBlur}
-      // autoFocus
       placeholder={placeholder}
     />
   );
