@@ -1,23 +1,38 @@
-import React from "react";
-import { withStyles, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import { withStyles, TextField, InputAdornment } from "@material-ui/core";
+import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
+
 const StyledTextField = withStyles({
   root: {
     "& input": {
       direction: "rtl",
+      padding: "5px 8px",
+      maxHeight: "30px",
     },
     "& label": {
       transformOrigin: "top right",
       right: 28,
       left: "auto",
+      textAlign: "right",
+      position: "relative",
+      top: 3,
+      backgroundColor: "transparent",
     },
     "& legend": {
       textAlign: "right",
     },
     "& label.Mui-focused": {
       color: "#4ba5ec",
+      top: 5,
+      right: 20,
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      border: "none !important",
     },
     "& .MuiOutlinedInput-root": {
-      "&.Mui-focused fieldset": {
+      border: `1px solid #b0bec5`,
+
+      "&.Mui-focused": {
         borderColor: "#4ba5ec",
       },
     },
@@ -36,6 +51,12 @@ const StyledTextField = withStyles({
       right: "10px",
       bottom: "-20px",
     },
+    "& .Mui-error.MuiOutlinedInput-root": {
+      border: `1px solid red`,
+    },
+    "& .MuiOutlinedInput-adornedStart": {
+      padding: 0,
+    },
   },
 })(TextField);
 
@@ -50,6 +71,7 @@ function TextInput({
   error,
   helperText = "",
   onBlur,
+  placeholder="",
 }) {
   return (
     <StyledTextField
@@ -59,10 +81,17 @@ function TextInput({
       value={value}
       required={required}
       disabled={disabled}
+      InputProps={{
+        startAdornment: error && (
+          <ErrorOutlineIcon style={{ color: "red", position: "absolute" }} />
+        ),
+      }}
       inputProps={inputProps}
       error={error}
       helperText={error && helperText}
       onBlur={onBlur}
+      // autoFocus
+      placeholder={placeholder}
     />
   );
 }

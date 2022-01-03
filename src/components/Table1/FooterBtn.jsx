@@ -19,7 +19,7 @@ export default function FooterBtn({ setisEditable, setIsinEditMode }) {
     
   };
   const resetNewData = () => {
-    dispatch(setIsDisable());
+    dispatch(setIsDisable(false));
     dispatch(resetData());
   };
 

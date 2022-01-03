@@ -10,12 +10,13 @@ export default function SelectInput({
   onBlur,
   value,
   valueOptions,
-  width
+  width,
 }) {
   return (
-    <Box sx={{ width:width }}>
+    <Box sx={{ width: width }}>
       <FormControl fullWidth>
         <Select
+          sx={{ maxHeight: 30 }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}

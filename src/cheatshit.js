@@ -395,3 +395,41 @@ function checkArray(data) {
 // border-radius: 3px
 // background-image:
 // linear-gradient (to top, #126cf9 #479dff)
+
+
+// return isNewRow ? (
+//   // return cell.value === "" ? (
+//     <td
+//       {...cell.getCellProps()}
+//       key={index}
+//       style={{ maxWidth: cell.column.width }}
+//     >
+//       {cell.render("Cell3")}
+//     </td>
+//   ) :
+
+
+const handleChange = (e) => {
+  // if (required) {
+  if (value.length >= 0) {
+    dispatch(setIsDisable(false));
+    // }
+  }
+  setValue(e.target.value);
+  dispatch(updateMyData({ index, id, value }));
+};
+
+// cell.value === "" ? (
+//   <td
+//     {...cell.getCellProps()}
+//     key={index}
+//     style={{ maxWidth: cell.column.width }}
+//   >
+//     {/* {cell.render("Cell3")} */}
+//     <NewEditableCell
+//       row={cell.row}
+//       column={cell.column}
+//       value={cell.value}
+//     />
+//   </td>
+// ) : 

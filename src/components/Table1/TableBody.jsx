@@ -13,7 +13,6 @@ export default function TableBody({
   const active = {
     backgroundColor: "#e7ebf2",
   };
-
   return (
     <tbody {...getTableBodyProps()}>
       {page.map((row, i) => {

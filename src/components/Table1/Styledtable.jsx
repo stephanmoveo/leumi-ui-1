@@ -12,12 +12,20 @@ import {
 import ToolTip from "./ToolTip";
 import AlertDialog from "../Table1/AlertDialog";
 
-function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
+function StyledTable({
+  tableData,
+  columnData,
+  newDataCallback,
+  mainTitle,
+  pagination,
+  editMode,
+}) {
   const dispatch = useDispatch();
-
+  const [isPagination, setIsPagination] = useState(pagination);
   const [datatoColumns] = useState(columnData);
   const [skipPageReset, setSkipPageReset] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
+  console.log(data);
   const triggerConfirm = useSelector(
     (state) => state.dataReducer.triggerConfirm
   );
@@ -28,6 +36,7 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
     }
   }, [triggerConfirm]);
   useEffect(() => {
+    setIsPagination(pagination);
     dispatch(getData(tableData));
     dispatch(getColumns(columnData));
   }, [dispatch]);
@@ -85,8 +94,10 @@ function StyledTable({ tableData, columnData, newDataCallback, mainTitle }) {
         columns={columns}
         skipPageReset={skipPageReset}
         renderRowSubComponent={renderRowSubComponent}
+        isPagination={isPagination}
+        editMode={editMode}
       />
-      <AlertDialog/>
+      <AlertDialog />
     </Styles>
   );
 }

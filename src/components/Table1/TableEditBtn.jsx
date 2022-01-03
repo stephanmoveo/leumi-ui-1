@@ -12,8 +12,8 @@ export default function TableEditBtn({
   isEditable,
   setIsinEditMode,
   gotoPage,
-  setIsPagination,
-  isPagination,
+  // setIsPagination,
+  // isPagination,
   mainTitle,
 }) {
   const dispatch = useDispatch();
@@ -43,12 +43,12 @@ export default function TableEditBtn({
             {"הוספה"}
           </EditBtn>
         </ToolTip>
-        <EditBtn>
+        {/* <EditBtn>
           <Switch
             defaultChecked
             onClick={() => setIsPagination(!isPagination)}
           />
-        </EditBtn>
+        </EditBtn> */}
       </FlexDiv>
       <h1 style={{ textAlign: "right", margin: 0 }}>{mainTitle} </h1>
     </div>

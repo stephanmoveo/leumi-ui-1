@@ -16,10 +16,12 @@ const defaultColumn = {
   Cell2: NonEditableCell,
   Cell3: NewEditableCell,
 };
-function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTitle}) {
+function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTitle, isPagination , editMode}) {
   const [isEditable, setisEditable] = useState("Cell2");
   const [isinEditMode, setIsinEditMode] = useState(false);
   const data = useSelector((state) => state.dataReducer.data);
+  const dataResult = useSelector((state) => state.dataReducer.dataResult);
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -48,19 +50,19 @@ function Table({ columns, skipPageReset, renderRowSubComponent, checked , mainTi
     useExpanded,
     usePagination
   );
-  const [isPagination, setIsPagination] = useState(false);
+  // const [isPagination, setIsPagination] = useState(false);
   return (
     <>
-      <TableEditBtn
+     {editMode && <TableEditBtn
       mainTitle={mainTitle}
         gotoPage={gotoPage}
         setisEditable={setisEditable}
         isEditable={isEditable}
         columns={columns}
         setIsinEditMode={setIsinEditMode}
-        setIsPagination={setIsPagination}
-        isPagination={isPagination}
-      />
+        // setIsPagination={setIsPagination}
+        // isPagination={isPagination}
+      />}
       <TableWarp>
         <table {...getTableProps()}>
           <TableHead headerGroups={headerGroups} />

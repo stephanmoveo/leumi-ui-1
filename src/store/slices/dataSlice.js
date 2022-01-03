@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
+  dataResult: [],
   originalData: [],
   columnsData: [],
   isDialog: false,
   deleteRowId: "",
   isDisable: false,
   triggerConfirm: false,
+  dataLength: Number,
 };
 
 export const dataSlice = createSlice({
@@ -24,15 +26,16 @@ export const dataSlice = createSlice({
     getData: (state, action) => {
       state.data = action.payload;
       state.originalData = action.payload;
+      // state.dataLength = action.payload.length;
     },
     addRow: (state, action) => {
       // state.originalData = state.data;
       const obj = {};
       action.payload.slice(1).forEach((item) => {
-        if(item.initValue){
-         return obj[item.accessor] = item.initValue;
+        if (item.initValue) {
+          return (obj[item.accessor] = item.initValue);
         }
-        return obj[item.accessor] = "";
+        return (obj[item.accessor] = "");
       });
       if (
         obj &&
@@ -41,8 +44,10 @@ export const dataSlice = createSlice({
       )
         return;
       else {
-        state.data.splice(0, 0, obj);
-        // state.originalData = state.data;
+        // state.data.splice(0, 0, obj);
+        const newArr = state.data.splice(0, 0, obj);
+        if (newArr.length <= 0) return;
+        state.data = newArr;
       }
     },
     deleteRow: (state, action) => {
@@ -67,17 +72,21 @@ export const dataSlice = createSlice({
         return row;
       });
       state.data = result;
+      // if(state.data!== state.dataResult)
+      // state.data = state.dataResult;
+      // console.log(result);
     },
     getColumns: (state, action) => {
       state.columnsData = action.payload;
     },
     setIsDisable: (state, action) => {
-      state.isDisable = !state.isDisable;
+      state.isDisable = action.payload;
     },
     confirmEdit: (state, action) => {
+      // if (state.dataResult.length >= 0) return;
+      // state.data = state.dataResult;
       state.triggerConfirm = action.payload;
     },
-
   },
 });
 

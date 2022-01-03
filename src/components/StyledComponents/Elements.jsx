@@ -39,7 +39,7 @@ export const Link = styled.a`
 
 export const TableWarp = styled.div`
   overflow-x: auto;
-  height: 400px;
+  max-height: 400px;
   margin-top: 5px;
   border-bottom: 1px solid #dedede;
 `;
@@ -53,10 +53,12 @@ export const DatePicker = styled.input`
   }
 `;
 export const MyDatePicker = styled.input`
-  padding: 20px 5px 20px 0;
-  width: 90px;
+  padding: 5px 5px 5px 0;
+  height: 30px;
+  width: 82px;
   border: none;
   background-color: transparent;
+  box-sizing: border-box;
 `;
 export const DatePickerWarp = styled.div`
   border-radius: 4px;
@@ -65,7 +67,7 @@ export const DatePickerWarp = styled.div`
   border: 1px solid #d1d1d1;
 
   svg {
-    width: 20px;
+    width: 18px;
   }
 `;
 export const AddInfoP = styled.p`
