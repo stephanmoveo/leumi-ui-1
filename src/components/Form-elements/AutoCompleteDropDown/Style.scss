@@ -1,0 +1,37 @@
+.auto-complete-dropdown {
+  .MuiInputBase-root {
+    border: 1px solid black;
+    padding-right: 5px !important;
+  }
+ 
+  .MuiAutocomplete-endAdornment {
+    position: absolute;
+    left: 9px;
+    right: auto !important;
+  }
+  .MuiInputLabel-formControl {
+    // top: 0;
+    right: 23px;
+    left: auto !important;
+    // position: absolute;
+    // transform: translate(0, 24px) scale(1);
+  }
+  .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(20px, -16px);
+  }
+  .MuiFormLabel-root.Mui-focused {
+    color: #6a7fa1;
+  }
+  fieldset {
+    border: none !important;
+  }
+  .Mui-focused {
+    border-color: #4ba5ec;
+  }
+}
+.MuiAutocomplete-popper{
+    text-align: right;
+    li {
+        justify-content: end;
+      }
+}

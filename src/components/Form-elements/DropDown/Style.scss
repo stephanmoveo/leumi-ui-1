@@ -1,0 +1,58 @@
+.dropDown {
+  .MuiInputLabel-formControl {
+    right: 20px;
+    top: auto !important;
+    bottom: 60px;
+    left: auto !important;
+    position: absolute;
+    transform: translate(0, 24px) scale(1);
+  }
+  .MuiInputLabel-shrink {
+    transform-origin: 0 !important;
+  }
+  .MuiSelect-select.MuiSelect-select {
+    min-width: 150px;
+    text-align: right;
+    padding-right: 8px !important;
+  }
+
+  .MuiSelect-select:hover {
+    border-color: #98a3a9;
+  }
+  .MuiSelect-icon {
+    left: 0;
+  }
+
+  .MuiListItem-root {
+    justify-content: end !important;
+  }
+  .MuiListItem-root.Mui-selected {
+    background-color: #126cf9 !important;
+  }
+  .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(14px, 18px) !important;
+  }
+  .MuiListItem-button:hover {
+    background-color: #ebf7fc !important;
+  }
+
+  .MuiFormHelperText-contained {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+  }
+
+  .MuiFormLabel-asterisk.MuiInputLabel-asterisk {
+    color: red;
+    position: relative;
+    top: 7px;
+    font-size: 20px;
+  }
+}
+.MuiPopover-root {
+  li {
+    justify-content: end;
+  }
+}
