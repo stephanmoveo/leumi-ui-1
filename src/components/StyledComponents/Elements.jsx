@@ -94,7 +94,7 @@ export const InputSelect = styled.select`
 `;
 
 export const AddInfoDiv = styled.div`
-  width: 33%;
+    width: 50%;
   margin: 22px 0;
 `;
 

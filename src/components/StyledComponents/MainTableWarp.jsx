@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   padding: 1rem;
-  /* margin: 5% auto; */
-  /* max-width: 67%; */
   box-shadow: -1px 2px 31px -5px rgba(0,0,0,0.75);
 
   table {

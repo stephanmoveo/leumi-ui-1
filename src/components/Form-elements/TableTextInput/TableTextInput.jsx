@@ -1,26 +1,23 @@
-import React from "react";
-import { withStyles, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import { withStyles, TextField, InputAdornment } from "@material-ui/core";
 import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 
 const StyledTextField = withStyles({
   root: {
-    "& .MuiInputBase-root":{
-      minHeight: "67px",
-
-    },
-    "& textarea": {
+    "& input": {
       direction: "rtl",
       padding: "5px 8px",
-      // minHeight: "40px",
+      maxHeight: "30px",
     },
     "& label": {
       transformOrigin: "top right",
-      right: 28,
+      right: 19,
       left: "auto",
       textAlign: "right",
-      position: "relative",
-      top: 3,
+      position: "absolute",
+      top: '-9px',
       backgroundColor: "transparent",
+      color: 'red'
     },
     "& legend": {
       textAlign: "right",
@@ -59,12 +56,12 @@ const StyledTextField = withStyles({
       border: `1px solid red`,
     },
     "& .MuiOutlinedInput-adornedStart": {
-      padding: 0,
+      padding: '0 0 0 8px',
     },
   },
 })(TextField);
 
-function DescriptionField ({
+function TableTextInput({
   label = "",
   id,
   handleChange,
@@ -79,8 +76,8 @@ function DescriptionField ({
 }) {
   return (
     <StyledTextField
-    id={id}
-      multiline
+    className="myhover"
+      id={id}
       variant="outlined"
       label={label}
       onChange={handleChange}
@@ -101,4 +98,4 @@ function DescriptionField ({
   );
 }
 
-export default DescriptionField ;
+export default TableTextInput;

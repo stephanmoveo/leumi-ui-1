@@ -23,19 +23,19 @@ function App() {
   return (
     <div className="App">
       <div className="main">
-        {/* <Styledtable
+        <Styledtable
           tableData={mokeJsonData}
           columnData={columnDataaa}
           newDataCallback={logDataReceived}
           mainTitle='הגדרת מנהל'
           pagination={false}
           editMode={true}
-        /> */}
-        <TextInput
+        />
+        {/* <TextInput
           label="הקלדה"
           value={value}
           handleChange={handleChange}
-          // required={true}
+          required={true}
           // disabled={true}
           // inputProps={
           //   { readOnly: true, }
@@ -44,7 +44,7 @@ function App() {
           helperText="שדה לא נכוןןן"
           onBlur={onBlur}
           id='hheeyyyyy'
-        />
+        /> */}
         {/* <DescriptionField
           helperText="שדה לא נכוןןן"
           onBlur={onBlur}
@@ -52,8 +52,8 @@ function App() {
           value={value}
           handleChange={handleChange}
           error={error}
-          required={true}
-          disabled={true}
+          required={false}
+          disabled={false}
           inputProps={{ readOnly: true }}
           id='hheeyyyyy'
         /> */}
