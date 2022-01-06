@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   input: { textAlign: "right" },
 });
 
-export default function AutoCompleteDropDown({ values }) {
+export default function AutoCompleteDropDown({ values , noOptionsText}) {
   const classes = useStyles();
 
   return (
@@ -45,12 +45,13 @@ export default function AutoCompleteDropDown({ values }) {
             {option.name} {option.age}
           </React.Fragment>
         )}
-        noOptionsText={"לא נמצאו תוצאות"}
+        noOptionsText={noOptionsText}
         renderInput={(params) => (
           <TextField
             {...params}
             label="שדה אוטוקומפליט"
             variant="outlined"
+            // placeholder="Select a unit type"
             inputProps={{
               ...params.inputProps,
               autoComplete: "new-password", // disable autocomplete and autofill

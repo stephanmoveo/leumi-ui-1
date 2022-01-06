@@ -3,18 +3,15 @@
     border: 1px solid black;
     padding-right: 5px !important;
   }
- 
+
   .MuiAutocomplete-endAdornment {
     position: absolute;
     left: 9px;
     right: auto !important;
   }
   .MuiInputLabel-formControl {
-    // top: 0;
     right: 23px;
     left: auto !important;
-    // position: absolute;
-    // transform: translate(0, 24px) scale(1);
   }
   .MuiInputLabel-outlined.MuiInputLabel-shrink {
     transform: translate(20px, -16px);
@@ -29,9 +26,9 @@
     border-color: #4ba5ec;
   }
 }
-.MuiAutocomplete-popper{
-    text-align: right;
-    li {
-        justify-content: end;
-      }
+.MuiAutocomplete-popper {
+  text-align: right;
+  li {
+    justify-content: end;
+  }
 }

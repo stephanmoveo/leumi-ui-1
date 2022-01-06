@@ -6,6 +6,7 @@ import TextInput from "./components/Form-elements/TextInput";
 import DescriptionField from "./components/Form-elements/DescriptionField ";
 import DropDown from "./components/Form-elements/DropDown";
 import AutoCompleteDropDown from "./components/Form-elements/AutoCompleteDropDown";
+import MultiSelectDropDown from './components/Form-elements/MultiSelectDropDown'
 function App() {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
@@ -24,15 +25,19 @@ function App() {
   return (
     <div className="App">
       <div className="main">
-        <AutoCompleteDropDown values={countries} />
-        <DropDown
+
+        <MultiSelectDropDown valueOptions={valueOptions}/>
+        {/* <AutoCompleteDropDown 
+        noOptionsText='לא נמצאו תוצאות'
+        values={countries} /> */}
+        {/* <DropDown
           valueOptions={valueOptions}
           handleChange={handleChange}
           value={value}
           disabled={false}
           error={false}
           required={false}
-        />
+        /> */}
         {/* <Styledtable
           tableData={mokeJsonData}
           columnData={columnDataaa}
@@ -41,7 +46,7 @@ function App() {
           pagination={false}
           editMode={true}
         /> */}
-        <TextInput
+        {/* <TextInput
           label="הקלדה"
           value={value}
           handleChange={handleChange}
@@ -54,8 +59,8 @@ function App() {
           helperText="שדה לא נכוןןן"
           onBlur={onBlur}
           id="hheeyyyyy"
-        />
-        <DescriptionField
+        /> */}
+        {/* <DescriptionField
           helperText="שדה לא נכוןןן"
           onBlur={onBlur}
           label="הקלדה"
@@ -66,7 +71,7 @@ function App() {
           disabled={false}
           inputProps={{ readOnly: true }}
           id="hheeyyyyy"
-        />
+        /> */}
       </div>
     </div>
   );
@@ -74,7 +79,7 @@ function App() {
 
 export default App;
 
-const valueOptions = ["בחידה 1", "בחידה 2", "בחידה 3", "בחידה 4", "בחידה 5"];
+const valueOptions = ["בחידה 5","בחידה 1", "בחידה 2", "בחידה 3", "בחידה 4", "בחידה 6"];
 const countries = [
   {
     name: "משה",

@@ -1,0 +1,93 @@
+.multi-select-drop-down {
+  .MuiFormControl-root {
+    max-height: 85px;
+  }
+  .MuiInputLabel-formControl {
+    left: auto;
+    position: absolute;
+    right: 21px;
+    top: -13px;
+    font-size: 14px;
+  }
+  .MuiInputLabel-shrink {
+    transform-origin: 0 !important;
+  }
+  .MuiSelect-select.MuiSelect-select {
+    min-width: 150px;
+    text-align: right;
+    padding-right: 0 !important;
+  }
+  .MuiOutlinedInput-input {
+    padding: 5px 13px;
+  }
+  .MuiSelect-select:hover {
+    border-color: #98a3a9;
+  }
+  .MuiSelect-icon {
+    left: 0;
+  }
+
+  .MuiListItem-root {
+    justify-content: end !important;
+  }
+  .MuiListItem-root.Mui-selected {
+    background-color: #126cf9 !important;
+  }
+  .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(13px, -4px) !important;
+    // bottom: 23px;
+    color: rgba(0, 0, 0, 0.54);
+
+ }
+  .MuiListItem-button:hover {
+    background-color: #ebf7fc !important;
+  }
+
+  .MuiFormHelperText-contained {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+  }
+
+  .MuiFormLabel-asterisk.MuiInputLabel-asterisk {
+    color: red;
+    position: relative;
+    top: 7px;
+    font-size: 20px;
+  }
+  .multi-select {
+    max-width: 300px;
+    display: flex;
+    padding: 0 5px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-end;
+
+    .selected-option {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      margin: 3px;
+      border-radius: 2px;
+      background-color: #ecf0f1;
+      padding: 0 5px;
+      min-width: 90px;
+    }
+  }
+
+}
+.MuiPopover-root {
+  li {
+    justify-content: end;
+    text-align: right;
+  }
+  .MuiCheckbox-colorSecondary.Mui-checked {
+    color: grey;
+}
+}
+// left: 21px;
+//     bottom: 4px;
+//     position: relative;
