@@ -27,25 +27,25 @@ function App() {
       <div className="main">
 
         <MultiSelectDropDown valueOptions={valueOptions}/>
-        {/* <AutoCompleteDropDown 
+        <AutoCompleteDropDown 
         noOptionsText='לא נמצאו תוצאות'
-        values={countries} /> */}
-        {/* <DropDown
+        values={countries} />
+        <DropDown
           valueOptions={valueOptions}
           handleChange={handleChange}
           value={value}
           disabled={false}
           error={false}
           required={false}
-        /> */}
-        {/* <Styledtable
+        />
+        <Styledtable
           tableData={mokeJsonData}
           columnData={columnDataaa}
-          newDataCallback={logDataReceived}
+          // newDataCallback={logDataReceived}
           mainTitle='הגדרת מנהל'
           pagination={false}
           editMode={true}
-        /> */}
+        />
         {/* <TextInput
           label="הקלדה"
           value={value}
@@ -76,10 +76,6 @@ function App() {
     </div>
   );
 }
-
-export default App;
-
-const valueOptions = ["בחידה 5","בחידה 1", "בחידה 2", "בחידה 3", "בחידה 4", "בחידה 6"];
 const countries = [
   {
     name: "משה",
@@ -106,3 +102,7 @@ const countries = [
     age: "73",
   },
 ];
+export default App;
+
+const valueOptions = ["בחידה 5","בחידה 1", "בחידה 2", "בחידה 3", "בחידה 4", "בחידה 6"];
+

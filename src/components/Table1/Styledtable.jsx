@@ -30,7 +30,7 @@ function StyledTable({
   );
   useEffect(() => {
     if (triggerConfirm) {
-      newDataCallback(data);
+      // newDataCallback(data);
       dispatch(confirmEdit(false));
     }
   }, [triggerConfirm]);
