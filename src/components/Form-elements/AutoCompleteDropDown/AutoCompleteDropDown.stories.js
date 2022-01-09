@@ -38,4 +38,5 @@ export const Default = Template.bind({});
 Default.args = {
   values: countries,
   noOptionsText: "לא נמצאו תוצאות",
+  disabled: false,
 };

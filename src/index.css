@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family:barlow ;
+  font-family:leumi-font ;
 
 }
 
@@ -17,7 +17,7 @@ code {
   font-family:barlow ;
   src: url('./Assets/Barlow/Barlow-Regular.ttf');
 }
-/* button{
-  background-image: linear-gradient(to top,#126cf9, #479dff);
-
-} */
+@font-face {
+  font-family:leumi-font ;
+  src: url('./Assets/SimplerPro/SimplerPro-Regular.woff2');
+}

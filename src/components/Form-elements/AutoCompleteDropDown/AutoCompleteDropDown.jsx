@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   input: { textAlign: "right" },
 });
 
-export default function AutoCompleteDropDown({ values , noOptionsText}) {
+export default function AutoCompleteDropDown({ values , noOptionsText, disabled}) {
   const classes = useStyles();
 
   return (
@@ -38,6 +38,7 @@ export default function AutoCompleteDropDown({ values , noOptionsText}) {
           option: classes.option,
           input: classes.input,
         }}
+        disabled={disabled}
         autoHighlight
         getOptionLabel={(option) => option.name}
         renderOption={(option) => (

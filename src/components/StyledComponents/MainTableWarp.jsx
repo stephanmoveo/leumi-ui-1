@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Styles = styled.div`
   padding: 1rem;
   box-shadow: -1px 2px 31px -5px rgba(0,0,0,0.75);
+  font-family:leumi-font ;
 
   table {
     border-spacing: 0;

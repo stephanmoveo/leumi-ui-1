@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Style.scss";
-import Styledtable from "./components/Table1/Styledtable";
+import Styledtable from "./components/Table1";
 import { columnDataaa, mokeJsonData } from "./components/Data/MokeJson";
 import TextInput from "./components/Form-elements/TextInput";
 import DescriptionField from "./components/Form-elements/DescriptionField ";
@@ -28,6 +28,7 @@ function App() {
 
         <MultiSelectDropDown valueOptions={valueOptions}/>
         <AutoCompleteDropDown 
+        disabled={true}
         noOptionsText='לא נמצאו תוצאות'
         values={countries} />
         <DropDown

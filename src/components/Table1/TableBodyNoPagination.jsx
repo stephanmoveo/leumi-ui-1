@@ -42,7 +42,8 @@ export default function TableBodyNoPagination({
                         sx: {
                           maxWidth: cell.column.width,
                           marginBottom: "3px !important",
-                          marginRight: "-10px !important",
+                          // marginRight: "-10px !important",
+                          textAlign:'right'
                         },
                       },
                     }}
