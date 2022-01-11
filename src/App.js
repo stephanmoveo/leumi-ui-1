@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Style.scss";
 import Styledtable from "./components/Table1";
-import { columnDataaa, mokeJsonData } from "./components/Data/MokeJson";
+import { columnDataaa, mokeJsonData,valedTablebata, validColumnsData } from "./components/Data/MokeJson";
 import TextInput from "./components/Form-elements/TextInput";
 import DescriptionField from "./components/Form-elements/DescriptionField ";
 import DropDown from "./components/Form-elements/DropDown";
 import AutoCompleteDropDown from "./components/Form-elements/AutoCompleteDropDown";
 import MultiSelectDropDown from './components/Form-elements/MultiSelectDropDown'
+import ValidationDialog from './components/Dialogs/ValidationDialog'
 function App() {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
@@ -26,7 +27,7 @@ function App() {
     <div className="App">
       <div className="main">
 
-        <MultiSelectDropDown valueOptions={valueOptions}/>
+        {/* <MultiSelectDropDown valueOptions={valueOptions}/>
         <AutoCompleteDropDown 
         disabled={true}
         noOptionsText='לא נמצאו תוצאות'
@@ -38,15 +39,24 @@ function App() {
           disabled={false}
           error={false}
           required={false}
-        />
+        /> */}
         <Styledtable
+          tableData={valedTablebata}
+          columnData={validColumnsData}
+          // newDataCallback={logDataReceived}
+          mainTitle='הגדרת מנהל'
+          pagination={false}
+          editMode={true}
+        />
+        {/* <Styledtable
           tableData={mokeJsonData}
           columnData={columnDataaa}
           // newDataCallback={logDataReceived}
           mainTitle='הגדרת מנהל'
           pagination={false}
           editMode={true}
-        />
+        /> */}
+        <ValidationDialog/>
         {/* <TextInput
           label="הקלדה"
           value={value}

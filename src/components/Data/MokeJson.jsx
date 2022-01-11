@@ -3,6 +3,92 @@ const rendomId = () => {
   return id;
 };
 
+
+export const validColumnsData=[
+  {
+    Header: "אי מייל",
+    accessor: "מייל",
+    type: "string",
+  },
+  {
+    Header: "תעודה זהות",
+    accessor: "תז",
+    type: "string",
+    width: 115,
+  },
+  {
+    Header: "מספר דרכון",
+    accessor: "מד",
+    type: "string",
+    width: 115,
+  },
+  {
+    Header: "מספר טלפון",
+    accessor: "טלפון",
+    type: "string",
+    width: 115,
+  },
+]
+
+export const valedTablebata =[
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+  {
+    id: rendomId(),
+    תז: "876467653",
+    מייל: 'stephan@gmail.com',
+    מד: '0987jhgf567hy7u',
+    טלפון: '054-4522614',
+    תאריך: "03.11.2021",
+  },
+]
+
 export const columnDataaa = [
   {
     Header: "שם המנהל",

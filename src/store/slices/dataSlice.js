@@ -9,12 +9,20 @@ const initialState = {
   isDisable: false,
   triggerConfirm: false,
   isNewRow: false,
+  isValidationDialog: false,
+  validationText:''
 };
 
 export const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
+    setValidationText:(state, action)=>{
+      state.validationText= action.payload
+    },
+    setIsValidationDialog: (state, action) => {
+      state.isValidationDialog = !state.isValidationDialog;
+    },
     setIsDialog: (state, action) => {
       if (action !== 0) {
         state.deleteRowId = action.payload;
@@ -98,6 +106,8 @@ export const {
   setIsDisable,
   confirmEdit,
   setIsNewRow,
+  setIsValidationDialog,
+  setValidationText
 } = dataSlice.actions;
 
 export const getAllData = (state) => state.data;

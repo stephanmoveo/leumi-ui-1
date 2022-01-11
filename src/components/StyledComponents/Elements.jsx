@@ -11,7 +11,7 @@ export const EditBtn = styled.div`
     cursor: pointer;
   }
   svg {
-    margin-bottom: -8px;
+    /* margin-bottom: -8px; */
     width: 24px;
   }
 `;
@@ -30,7 +30,7 @@ export const FlexDivJusRight = styled.div`
 `;
 export const Link = styled.a`
   text-decoration: none;
-  color: blue;
+  color: #126cf9;
 
   &:hover {
     text-decoration: underline;

@@ -11,7 +11,7 @@ import {
 } from "../../store/slices/dataSlice";
 import ToolTip from "./ToolTip";
 import AlertDialog from "../Table1/AlertDialog";
-
+import DELETEICON from '../../Assets/delete_2022-01-11/delete.png'
 function StyledTable({
   tableData,
   columnData,
@@ -65,10 +65,9 @@ function StyledTable({
         Cell: ({ row }) => {
           return (
             <ToolTip val="מחיקה">
-              <HighlightOffIcon
+              <img src={DELETEICON}
                 style={{
-                  margin: "0 0 -2px 0",
-                  color: "grey",
+                  margin: "0 0 -3px 0",
                   width: "20px",
                 }}
                 onClick={() => dispatch(setIsDialog(row.original.id))}

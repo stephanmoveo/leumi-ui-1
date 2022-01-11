@@ -1,5 +1,5 @@
 import Styledtable from "./index";
-import { columnDataaa, mokeJsonData } from "../Data/MokeJson";
+import { columnDataaa, mokeJsonData , valedTablebata, validColumnsData } from "../Data/MokeJson";
 import { Provider } from "react-redux";
 import { store } from "../../store/index";
 
@@ -12,8 +12,8 @@ const Template = (args) => <Provider store={store}><Styledtable {...args} /></Pr
 
 export const Default = Template.bind({});
 Default.args = {
-  tableData: mokeJsonData,
-  columnData: columnDataaa,
+  tableData: valedTablebata,
+  columnData: validColumnsData,
   mainTitle: "",
   pagination: false,
   editMode: true,
